@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/ui/Reveal";
+import { Plate } from "@/components/ui/Plate";
 import { ArrowLink, PageHead } from "@/components/ui/primitives";
 import { achievements, achievementsRule } from "@/content/misc";
+import { photos } from "@/content/photos";
 
 export const metadata: Metadata = {
   title: "Achievements",
@@ -13,7 +15,7 @@ export default function AchievementsPage() {
   return (
     <>
       <PageHead
-        index="10"
+        index="06"
         kicker="Record"
         title={
           <>
@@ -71,14 +73,44 @@ export default function AchievementsPage() {
           ))}
         </div>
 
-        <div className="mt-14 grid grid-cols-12 gap-x-6">
+        {/* The receipts, photographed. */}
+        <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3">
+          <Reveal>
+            <Plate
+              photo={photos.motilalOswal}
+              fig="Pl.&thinsp;01"
+              caption="Recognition — Motilal Oswal."
+              sizes="(max-width: 640px) 100vw, 30vw"
+            />
+          </Reveal>
+          <Reveal delay={0.06}>
+            <Plate
+              photo={photos.speakingPeta}
+              fig="Pl.&thinsp;02"
+              caption="Speaking — Matterly Foundation & PETA India."
+              sizes="(max-width: 640px) 100vw, 30vw"
+            />
+          </Reveal>
+          <Reveal delay={0.12}>
+            <Plate
+              photo={photos.divingUnderwater}
+              fig="Pl.&thinsp;03"
+              caption="Certified — Scuba Diver, Junior Rescue Diver."
+              sizes="(max-width: 640px) 100vw, 30vw"
+            />
+          </Reveal>
+        </div>
+
+        <div className="mt-16 grid grid-cols-12 gap-x-6">
           <div className="col-span-12 lg:col-span-8 lg:col-start-5">
             <p className="serif-body display-italic max-w-[34ch] text-[clamp(1.35rem,3.4vw,1.9rem)]">
               This is deliberately a secondary page. The work is the point; the
               list is only the receipt.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
-              <ArrowLink href="/projects">See the work instead</ArrowLink>
+              <ArrowLink href="/hall-of-fame">
+                See the photographs instead
+              </ArrowLink>
               <ArrowLink href="/research">And the research</ArrowLink>
             </div>
           </div>

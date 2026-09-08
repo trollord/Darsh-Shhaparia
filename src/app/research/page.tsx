@@ -20,7 +20,7 @@ export default function ResearchPage() {
   return (
     <>
       <PageHead
-        index="06"
+        index="08"
         kicker="Research notebook"
         title={
           <>

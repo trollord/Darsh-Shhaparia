@@ -3,12 +3,12 @@ export const site = {
   nameStylised: "Darsh Shhaparia",
   grade: "Grade 9",
   year: 2026,
-  roles: ["Student", "Writer", "Builder", "Researcher"],
+  roles: ["Student", "Writer", "Researcher", "Diver"],
   tagline: "Exploring Finance. Mathematics. Technology. Human Behaviour.",
   shortBio:
     "I'm a Grade 9 student exploring the intersection of mathematics, finance, technology, entrepreneurship and human behaviour. I write about ideas that interest me, build projects to understand them more deeply, and document what I learn along the way.",
   metaDescription:
-    "Darsh Shhaparia — Grade 9 student, author of The Millionaire Mindset and host of Money Matters with Darsh. Writing, projects and research at the intersection of mathematics, finance, technology and human behaviour.",
+    "Darsh Shhaparia — Grade 9 student, author of The Millionaire Mindset and host of Money Matters with Darsh. Writing, research and a record of the work, at the intersection of mathematics, finance, technology and human behaviour.",
   email: "hello@darshshhaparia.com",
   url: "https://darshshhaparia.com",
   socials: [
@@ -22,18 +22,18 @@ export type NavItem = { label: string; href: string; index: string };
 
 export const nav: NavItem[] = [
   { label: "About", href: "/about", index: "01" },
-  { label: "Writing", href: "/writing", index: "02" },
-  { label: "Book", href: "/book", index: "03" },
-  { label: "Podcast", href: "/podcast", index: "04" },
-  { label: "Projects", href: "/projects", index: "05" },
-  { label: "Research", href: "/research", index: "06" },
-  { label: "Learning", href: "/learning", index: "07" },
-  { label: "Journey", href: "/journey", index: "08" },
+  { label: "My Journey", href: "/journey", index: "02" },
+  { label: "My Books", href: "/book", index: "03" },
+  { label: "Writing", href: "/writing", index: "04" },
+  { label: "Podcast", href: "/podcast", index: "05" },
+  { label: "Achievements", href: "/achievements", index: "06" },
+  { label: "Hall of Fame", href: "/hall-of-fame", index: "07" },
+  { label: "Research", href: "/research", index: "08" },
   { label: "Contact", href: "/contact", index: "09" },
 ];
 
 export const secondaryNav: NavItem[] = [
-  { label: "Achievements", href: "/achievements", index: "10" },
+  { label: "Gallery", href: "/hall-of-fame#gallery", index: "10" },
   { label: "Things I Got Wrong", href: "/things-i-got-wrong", index: "11" },
 ];
 
@@ -44,7 +44,7 @@ export const ticker: string[] = [
   "Portfolio theory",
   "Microeconomics",
   "Reading — Thinking, Fast and Slow",
-  "Building — Monte Carlo simulator",
+  "Diving — PADI Junior Rescue Diver",
   "Writing — The mathematics of compound interest",
 ];
 

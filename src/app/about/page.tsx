@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/ui/Reveal";
-import { Figure } from "@/components/ui/Figure";
+import { Plate } from "@/components/ui/Plate";
 import { ArrowLink, Diamond, PageHead } from "@/components/ui/primitives";
+import { photos } from "@/content/photos";
 
 export const metadata: Metadata = {
   title: "About",
@@ -45,9 +46,9 @@ const chapters = [
     title: "I also want to learn by building",
     paras: [
       "As I develop my programming skills, I'm interested in creating tools and simulations that connect mathematics with real-world financial questions.",
-      "My projects may start simple. The goal is for them to become more sophisticated as my knowledge grows — and for the record of that progression to be visible rather than hidden.",
+      "The work may start simple. The goal is for it to become more sophisticated as my knowledge grows — and for the record of that progression to be visible rather than hidden.",
     ],
-    link: { href: "/projects", label: "See the projects" },
+    link: { href: "/achievements", label: "See the record so far" },
   },
   {
     n: "05",
@@ -58,6 +59,16 @@ const chapters = [
       "That means learning how to form hypotheses, collect data, analyse results, recognise limitations and communicate conclusions. The limitations section is the one I find hardest and the one I think matters most.",
     ],
     link: { href: "/research", label: "Open the research notebook" },
+  },
+  {
+    n: "06",
+    label: "Underwater",
+    title: "Diving taught me what risk actually feels like",
+    paras: [
+      "Outside all of this I am a certified Scuba Diver and Junior Rescue Diver. I also swim, and I read a lot of geopolitics and history.",
+      "The Rescue course is the one that changed how I think. It is almost entirely about noticing a small problem early, because underwater a small problem does not stay small. That is a better description of financial risk than most of the definitions I had read.",
+    ],
+    link: { href: "/journey#passions", label: "More on the diving" },
   },
 ];
 
@@ -98,10 +109,11 @@ export default function AboutPage() {
                 ))}
               </ol>
 
-              <Figure
-                caption="Darsh, 2026. Photograph to be added."
+              <Plate
+                photo={photos.portraitClose}
+                caption="Darsh Shhaparia, 2026."
                 fig="Pl.&thinsp;01"
-                ratio="3 / 4"
+                sizes="22vw"
                 className="mt-12 hidden lg:block"
               />
             </div>
@@ -146,7 +158,7 @@ export default function AboutPage() {
             <Reveal>
               <article className="inverted graph-paper-inv bg-navy p-8 sm:p-12">
                 <div className="mb-8 flex items-center gap-4">
-                  <span className="label text-accent">§&thinsp;06</span>
+                  <span className="label text-accent">§&thinsp;07</span>
                   <span className="h-px w-6 bg-[var(--rule-strong)]" />
                   <span className="label text-ink-45">What I believe</span>
                 </div>

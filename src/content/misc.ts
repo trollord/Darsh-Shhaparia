@@ -1,11 +1,15 @@
 /* ------------------------------------------------------------------
-   Book · Podcast · Learning · Journey · Achievements · Errata
+   Book · Podcast · Journey · Passions · Achievements · Errata
    ------------------------------------------------------------------ */
 
 export const book = {
   title: "The Millionaire Mindset",
-  subtitle: "An introduction to financial thinking for young readers",
+  subtitle: "A Kid's Guide to Earning and Growing Wealth",
   published: "2025",
+  publisher: "TS Publication — Truth and Social Publication",
+  isbn: "978-93-49186-85-9",
+  price: "₹250",
+  readership: "Young readers, 11+",
   blurb:
     "My first book, introducing young readers to money habits, saving, investing, entrepreneurship and the way financial decisions compound over a lifetime.",
   why: [
@@ -122,41 +126,64 @@ export const episodes: Episode[] = [
   },
 ];
 
-/* ---------------------------------------------------------------- */
+/* ------------------------------------------------------------------
+   Passions — what I do when I am not at a desk. Scuba diving leads,
+   because it is the one that has changed how I think about risk.
+   ------------------------------------------------------------------ */
 
-export const learning = [
+export type Passion = {
+  key: string;
+  title: string;
+  glyph: "wave" | "curve" | "globe";
+  since?: string;
+  lede: string;
+  certifications?: string[];
+  paras: string[];
+  facts?: { k: string; v: string }[];
+};
+
+export const passions: Passion[] = [
   {
-    field: "Mathematics",
-    glyph: "curve" as const,
-    current: ["School mathematics", "Functions", "Probability fundamentals"],
-    next: ["Statistics", "Calculus", "Linear Algebra", "Optimization"],
-    note: "The order matters — statistics before calculus, because I want to be able to reason about uncertainty before I optimise anything.",
+    key: "diving",
+    title: "Scuba Diving",
+    glyph: "wave",
+    lede: "Certified Scuba Diver and Junior Rescue Diver.",
+    certifications: ["Scuba Diver", "Junior Rescue Diver"],
+    paras: [
+      "Diving is the only thing I do where a checklist is not bureaucracy. You plan the dive, you dive the plan, and you check your air on a schedule rather than when you feel like it.",
+      "The Rescue course was the part that stayed with me. It is almost entirely about noticing a small problem early — a diver breathing too fast, a strap not quite right — because underwater, small problems do not stay small.",
+      "It is also the closest thing I have to a working model of risk. Nothing about a dive is dangerous on its own; the danger is in the combination, and in the assumption you did not check.",
+    ],
+    facts: [
+      { k: "Certifications", v: "Scuba Diver · Junior Rescue Diver" },
+      { k: "Environment", v: "Open water, wrecks" },
+      { k: "Carried over", v: "Plan first, then act. Check the assumption." },
+    ],
   },
   {
-    field: "Finance",
-    glyph: "bars" as const,
-    current: ["Financial markets", "Investing fundamentals"],
-    next: ["Portfolio theory", "Risk", "Derivatives", "Quantitative finance"],
-    note: "Portfolio theory is the first place where the finance stops being descriptive and starts being mathematical.",
+    key: "swimming",
+    title: "Swimming",
+    glyph: "curve",
+    lede: "The training that made the diving possible.",
+    paras: [
+      "Swimming came first, and it is the reason the diving was ever an option. Comfort in water is not something you can shortcut with equipment.",
+      "It is also the most honest form of practice I know: the clock does not care how the session felt.",
+    ],
   },
   {
-    field: "Programming",
-    glyph: "braces" as const,
-    current: ["Python fundamentals"],
-    next: ["NumPy", "pandas", "Data visualization", "Financial modelling"],
-    note: "I am learning the libraries in the order I need them for projects, not in the order a course would teach them.",
-  },
-  {
-    field: "Economics",
-    glyph: "fork" as const,
-    current: ["Microeconomics fundamentals"],
-    next: ["Macroeconomics", "Econometrics"],
-    note: "Econometrics is the bridge between the economics and the statistics, which is why it sits at the end.",
+    key: "history",
+    title: "Geopolitics & History",
+    glyph: "globe",
+    lede: "Reading about why things ended up this way.",
+    paras: [
+      "Markets, borders and institutions are all downstream of decisions people made under uncertainty, usually with worse information than we have now.",
+      "Reading history is the cheapest way I know to see a large number of those decisions and how they actually turned out.",
+    ],
   },
 ];
 
-export const learningRule =
-  "This page only lists what I am genuinely working on. When something moves from 'exploring next' to 'current', it is because it actually did.";
+export const passionsRule =
+  "These are not hobbies listed to fill a page. Each one has changed how I think about something else on this site.";
 
 /* ---------------------------------------------------------------- */
 
@@ -176,8 +203,8 @@ export const journey: JourneyYear[] = [
     headline: "Beginning: exploring finance, mathematics and technology.",
     blocks: [
       { label: "Exploring", items: ["Finance", "Mathematics", "Programming", "Writing", "Research"] },
-      { label: "Building", items: ["First financial mathematics projects"] },
       { label: "Publishing", items: ["Articles and educational content"] },
+      { label: "Diving", items: ["Scuba Diver", "Junior Rescue Diver"] },
       { label: "Learning", items: ["Python and quantitative concepts"] },
     ],
   },
@@ -233,10 +260,30 @@ export const achievements = [
     ],
   },
   {
-    category: "Projects",
+    category: "Speaking",
     items: [
-      { t: "Compound Interest Calculator", d: "Python. Model, derivation and write-up.", year: "2026" },
-      { t: "Portfolio Risk Simulator", d: "In progress.", year: "2026" },
+      {
+        t: "Matterly Foundation & PETA India",
+        d: "Spoke at an event held with the Matterly Foundation, PETA India and SAIRIK.",
+        year: "2025",
+      },
+    ],
+  },
+  {
+    category: "Recognition",
+    items: [
+      {
+        t: "Motilal Oswal",
+        d: "Award received at the Motilal Oswal offices.",
+        year: "2025",
+      },
+    ],
+  },
+  {
+    category: "Certifications",
+    items: [
+      { t: "Scuba Diver", d: "Open-water certification.", year: "2025" },
+      { t: "Junior Rescue Diver", d: "Rescue-level certification.", year: "2025" },
     ],
   },
   {
@@ -245,10 +292,6 @@ export const achievements = [
   },
   {
     category: "Competitions",
-    items: [],
-  },
-  {
-    category: "Certifications",
     items: [],
   },
 ];

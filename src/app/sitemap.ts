@@ -1,23 +1,21 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { articles } from "@/content/writing";
-import { projects } from "@/content/projects";
 import { entries } from "@/content/research";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/about",
-    "/writing",
-    "/book",
-    "/podcast",
-    "/projects",
-    "/research",
-    "/learning",
     "/journey",
+    "/book",
+    "/writing",
+    "/podcast",
     "/achievements",
-    "/things-i-got-wrong",
+    "/hall-of-fame",
+    "/research",
     "/contact",
+    "/things-i-got-wrong",
   ];
 
   const pages = [
@@ -25,10 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...articles
       .filter((a) => a.status === "published")
       .map((a) => ({ url: `${site.url}/writing/${a.slug}`, priority: 0.8 })),
-    ...projects.map((p) => ({
-      url: `${site.url}/projects/${p.slug}`,
-      priority: 0.8,
-    })),
     ...entries.map((e) => ({
       url: `${site.url}/research/${e.slug}`,
       priority: 0.6,

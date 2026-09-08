@@ -154,7 +154,7 @@ export const articles: Article[] = [
       "— Plotting the output caught an error that reading the output did not. The curve had a kink in it that no reasonable growth curve should have.",
       "## Why I think building matters",
       "When you read about an idea, you get to skip the parts you do not understand. When you implement it, the computer does not let you. Every ambiguity in your understanding becomes a decision you have to make explicitly.",
-      "That is the argument for the projects section of this site. It is not a portfolio of impressive things. It is a record of ideas I was forced to understand properly.",
+      "That is the argument for the research notebook on this site. It is not a portfolio of impressive things. It is a record of ideas I was forced to understand properly.",
     ],
   },
 

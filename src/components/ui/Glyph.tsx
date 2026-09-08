@@ -4,7 +4,14 @@
  * of the thing it names, drawn on the same 28px grid at 1px stroke.
  */
 
-export type GlyphName = "curve" | "bars" | "braces" | "fork" | "nib";
+export type GlyphName =
+  | "curve"
+  | "bars"
+  | "braces"
+  | "fork"
+  | "nib"
+  | "wave"
+  | "globe";
 
 const common = {
   width: 30,
@@ -76,6 +83,29 @@ export function Glyph({
           <path d="M15 2 7 20l8 8 8-8-8-18Z" />
           <path d="M15 12v13" />
           <path d="M9.4 19.6h11.2" opacity="0.5" />
+        </svg>
+      );
+
+    // A surface line with bubbles rising to it — diving.
+    case "wave":
+      return (
+        <svg {...common} className={className} aria-hidden>
+          <path d="M1 7c3.5 0 3.5 3 7 3s3.5-3 7-3 3.5 3 7 3 3.5-3 7-3" />
+          <path d="M1 13c3.5 0 3.5 3 7 3s3.5-3 7-3 3.5 3 7 3 3.5-3 7-3" opacity="0.4" />
+          <circle cx="11" cy="24" r="2.4" />
+          <circle cx="18" cy="27" r="1.4" opacity="0.6" />
+          <circle cx="20" cy="21" r="1" opacity="0.45" />
+        </svg>
+      );
+
+    // A meridian grid — geography and history.
+    case "globe":
+      return (
+        <svg {...common} className={className} aria-hidden>
+          <circle cx="15" cy="15" r="13" />
+          <path d="M2 15h26" opacity="0.5" />
+          <path d="M15 2c5 4 5 22 0 26" />
+          <path d="M15 2c-5 4-5 22 0 26" opacity="0.5" />
         </svg>
       );
   }

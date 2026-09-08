@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/ui/Reveal";
-import { Figure } from "@/components/ui/Figure";
+import { Plate } from "@/components/ui/Plate";
 import {
   ArrowLink,
   Diamond,
@@ -8,6 +8,7 @@ import {
   SectionHead,
 } from "@/components/ui/primitives";
 import { book } from "@/content/misc";
+import { photos } from "@/content/photos";
 
 export const metadata: Metadata = {
   title: "The Millionaire Mindset",
@@ -33,19 +34,25 @@ export default function BookPage() {
       <section className="wrap pt-20 pb-24 sm:pt-24 sm:pb-32">
         <div className="grid grid-cols-12 gap-x-6 gap-y-14">
           <div className="col-span-12 md:col-span-5 lg:col-span-4">
-            <Figure
-              caption="The Millionaire Mindset, first edition."
+            <Plate
+              photo={photos.bookCover}
               fig="Pl.&thinsp;01"
-              ratio="3 / 4"
+              caption="The Millionaire Mindset, first edition."
+              sizes="(max-width: 768px) 100vw, 32vw"
+              priority
             />
           </div>
           <div className="col-span-12 md:col-span-7 lg:col-span-7 lg:col-start-6">
             <dl className="ledger grid grid-cols-2">
               {[
                 ["Title", book.title],
-                ["Published", book.published],
+                ["Subtitle", book.subtitle],
                 ["Author", "Darsh Shhaparia"],
-                ["Readership", "Young readers, 11+"],
+                ["Published", book.published],
+                ["Publisher", book.publisher],
+                ["Readership", book.readership],
+                ["ISBN", book.isbn],
+                ["Price", book.price],
               ].map(([k, v]) => (
                 <div key={k} className="p-5 sm:p-6">
                   <dt className="label-sm mb-3 text-ink-25">{k}</dt>
@@ -158,26 +165,48 @@ export default function BookPage() {
           ))}
         </ol>
 
-        <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          <Figure
-            caption="Early notes and outline, 2024."
-            fig="Pl.&thinsp;02"
-            ratio="4 / 3"
-          />
-          <Figure
-            caption="Chapter drafts with edits."
-            fig="Pl.&thinsp;03"
-            ratio="4 / 3"
-          />
-          <Figure
-            caption="First printed copy."
-            fig="Pl.&thinsp;04"
-            ratio="4 / 3"
-          />
+        <div className="mt-16 grid grid-cols-12 gap-x-6 gap-y-12">
+          <div className="col-span-12 lg:col-span-8">
+            <Plate
+              photo={photos.bookCoverSpread}
+              fig="Pl.&thinsp;02"
+              caption="The full wrap — back cover, spine and front, as printed."
+              sizes="(max-width: 1024px) 100vw, 64vw"
+            />
+          </div>
+          <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+            <Plate
+              photo={photos.authorWithBook}
+              fig="Pl.&thinsp;03"
+              caption="With the first printed copy."
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 32vw"
+            />
+          </div>
+          <div className="col-span-12 sm:col-span-6 lg:col-span-5">
+            <Plate
+              photo={photos.bookPresentation1}
+              fig="Pl.&thinsp;04"
+              caption="Handing a copy over in person."
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 40vw"
+            />
+          </div>
+          <div className="col-span-12 sm:col-span-6 lg:col-span-5 lg:col-start-7">
+            <Plate
+              photo={photos.speakingPeta}
+              fig="Pl.&thinsp;05"
+              caption="Talking about the ideas in it, on stage."
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 40vw"
+            />
+          </div>
         </div>
 
         <div className="mt-16 border-t border-[var(--rule)] pt-10">
-          <p className="label mb-5 text-ink-25">Reader feedback</p>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+            <ArrowLink href="/hall-of-fame">
+              See the rest of the photographs
+            </ArrowLink>
+          </div>
+          <p className="label mt-12 mb-5 text-ink-25">Reader feedback</p>
           <p className="serif-body max-w-[46ch] text-[1.0625rem] text-ink-70">
             Quotes from readers will be added here as they come in — real ones
             only, attributed. Nothing invented to fill the space.

@@ -3,6 +3,7 @@ import { Hero } from "@/components/home/Hero";
 import { Ticker } from "@/components/site/Ticker";
 import { Reveal } from "@/components/ui/Reveal";
 import { Glyph } from "@/components/ui/Glyph";
+import { Plate, pl } from "@/components/ui/Plate";
 import { RandomWalk } from "@/components/data/RandomWalk";
 import {
   ArrowLink,
@@ -11,9 +12,15 @@ import {
   SectionHead,
 } from "@/components/ui/primitives";
 import { openingQuestions, pillars } from "@/content/site";
-import { projects } from "@/content/projects";
 import { researchMethod, entries } from "@/content/research";
-import { learning, journey, errata, errataRule } from "@/content/misc";
+import {
+  achievements,
+  journey,
+  errata,
+  errataRule,
+  passions,
+} from "@/content/misc";
+import { hallOfFame, photos } from "@/content/photos";
 
 const featured = [
   {
@@ -193,74 +200,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 04 — PROJECTS ════════════════════════════════════ */}
+      {/* ══ § 04 — HALL OF FAME ════════════════════════════════ */}
       <section className="wrap pb-24 sm:pb-32">
         <SectionHead
           index="04"
-          kicker="Built"
-          title="I learn best by building."
-          dek="Each project follows the same eight-part structure: the question, the idea, the mathematics, the code, the data, the results, what I learned, and what I'd do next."
+          kicker="Hall of fame"
+          title="Awards, and the people behind them"
+          dek="Everything written on this site happened somewhere. These are the rooms it happened in — and there is a gallery underneath them."
         />
 
-        <div className="mt-14 border-t border-[var(--rule)] sm:mt-20">
-          {projects.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.05}>
-              <Link
-                href={`/projects/${p.slug}`}
-                className="row-hover group grid grid-cols-12 items-baseline gap-x-4 gap-y-3 border-b border-[var(--rule)] py-7"
-              >
-                <span className="label col-span-2 text-accent md:col-span-1">
-                  {p.index}
-                </span>
-                <div className="col-span-10 md:col-span-6">
-                  <h3 className="display text-[clamp(1.4rem,3vw,1.85rem)]">
-                    <span className="link-rule">{p.title}</span>
-                  </h3>
-                  <p className="serif-body mt-2 max-w-[44ch] text-[0.9375rem] text-ink-45">
-                    {p.question}
-                  </p>
+        <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-12 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+          {hallOfFame.map((e, i) => (
+            <Reveal key={e.n} delay={i * 0.06}>
+              <Link href="/hall-of-fame" className="group block">
+                <Plate
+                  photo={e.photo}
+                  caption=""
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 23vw"
+                />
+                <div className="mt-4 flex items-baseline gap-3">
+                  <span className="label-sm shrink-0 text-accent">{pl(i)}</span>
+                  <span className="label-sm text-ink-25">{e.kind}</span>
                 </div>
-                <div className="col-span-12 hidden flex-wrap gap-x-3 gap-y-2 md:col-span-3 md:flex">
-                  {p.disciplines.map((d) => (
-                    <span key={d} className="label-sm text-ink-45">
-                      {d}
-                    </span>
-                  ))}
-                </div>
-                <div className="col-span-12 flex items-center gap-3 md:col-span-2 md:justify-end">
-                  <span
-                    aria-hidden
-                    className={`inline-block h-[5px] w-[5px] rotate-45 ${
-                      p.status === "shipped"
-                        ? "bg-accent"
-                        : p.status === "building"
-                          ? "bg-amber-2"
-                          : "bg-ink-25"
-                    }`}
-                  />
-                  <span className="label-sm text-ink-45">{p.status}</span>
-                  <svg
-                    width="13"
-                    height="9"
-                    viewBox="0 0 13 9"
-                    fill="none"
-                    aria-hidden
-                    className="arrow-slide ml-1 text-ink-25 group-hover:text-ink"
-                  >
-                    <path
-                      d="M0 4.5h11M8 1l3.5 3.5L8 8"
-                      stroke="currentColor"
-                      strokeWidth="1.1"
-                    />
-                  </svg>
-                </div>
+                <h3 className="display mt-2.5 text-[1.25rem] transition-colors duration-300 group-hover:text-accent">
+                  <span className="link-rule">{e.title}</span>
+                </h3>
               </Link>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-10">
-          <ArrowLink href="/projects">All projects</ArrowLink>
+        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4">
+          <ArrowLink href="/hall-of-fame">Open the hall of fame</ArrowLink>
+          <ArrowLink href="/hall-of-fame#gallery">See the gallery</ArrowLink>
         </div>
       </section>
 
@@ -339,48 +311,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 06 — LEARNING ════════════════════════════════════ */}
+      {/* ══ § 06 — ACHIEVEMENTS ════════════════════════════════ */}
       <section className="wrap pt-24 pb-24 sm:pt-32 sm:pb-32">
         <SectionHead
           index="06"
-          kicker="Living record"
-          title="What I'm learning"
-          dek="Only what I am genuinely working on. When something moves from 'next' to 'current', it is because it actually did."
+          kicker="The record"
+          title="Achievements, kept honest"
+          dek="Quality over quantity. Empty categories stay empty until there is something real to put in them."
         />
 
         <div className="mt-14 border-t border-[var(--rule)] sm:mt-20">
-          {learning.map((l, i) => (
-            <Reveal key={l.field} delay={i * 0.05}>
-              <div className="grid grid-cols-12 gap-x-6 gap-y-5 border-b border-[var(--rule)] py-9">
-                <div className="col-span-12 flex items-center gap-4 md:col-span-3">
-                  <Glyph name={l.glyph} className="shrink-0 text-accent" />
-                  <h3 className="display text-[1.5rem]">{l.field}</h3>
+          {achievements.map((cat, i) => (
+            <Reveal key={cat.category} delay={i * 0.04}>
+              <div className="grid grid-cols-12 gap-x-6 gap-y-4 border-b border-[var(--rule)] py-8">
+                <div className="col-span-12 flex items-baseline gap-4 md:col-span-3">
+                  <h3 className="display text-[1.5rem]">{cat.category}</h3>
+                  <span className="label-sm text-ink-25">
+                    {cat.items.length
+                      ? String(cat.items.length).padStart(2, "0")
+                      : "—"}
+                  </span>
                 </div>
-                <div className="col-span-12 md:col-span-4">
-                  <p className="label-sm mb-3.5 text-ink-25">Current</p>
-                  <ul className="flex flex-wrap gap-2">
-                    {l.current.map((c) => (
-                      <li
-                        key={c}
-                        className="label-sm border border-[var(--rule-strong)] px-2.5 py-1.5 text-ink"
-                      >
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="col-span-12 md:col-span-5">
-                  <p className="label-sm mb-3.5 text-ink-25">Exploring next</p>
-                  <ul className="flex flex-wrap items-center gap-x-2 gap-y-2">
-                    {l.next.map((c, j) => (
-                      <li key={c} className="flex items-center gap-2">
-                        {j > 0 && (
-                          <span className="label-sm text-ink-25">&rarr;</span>
-                        )}
-                        <span className="label-sm text-ink-45">{c}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="col-span-12 md:col-span-9">
+                  {cat.items.length ? (
+                    <ul className="space-y-3">
+                      {cat.items.map((it) => (
+                        <li
+                          key={it.t}
+                          className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+                        >
+                          <p className="serif-body text-[1.0625rem]">
+                            {it.t}
+                            <span className="text-ink-45"> — {it.d}</span>
+                          </p>
+                          <span className="label-sm num shrink-0 text-ink-25">
+                            {it.year}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="serif-body display-italic text-[1rem] text-ink-45">
+                      Nothing here yet — left empty rather than padded.
+                    </p>
+                  )}
                 </div>
               </div>
             </Reveal>
@@ -388,14 +362,77 @@ export default function Home() {
         </div>
 
         <div className="mt-10">
-          <ArrowLink href="/learning">See what I&rsquo;m learning</ArrowLink>
+          <ArrowLink href="/achievements">The full record</ArrowLink>
         </div>
       </section>
 
-      {/* ══ § 07 — JOURNEY ═════════════════════════════════════ */}
+      {/* ══ § 07 — DIVING ══════════════════════════════════════ */}
       <section className="wrap pb-24 sm:pb-32">
         <SectionHead
           index="07"
+          kicker="Passions"
+          title={
+            <>
+              Away from the desk,{" "}
+              <span className="display-italic text-ink-45">underwater.</span>
+            </>
+          }
+        />
+
+        <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-10 sm:mt-20">
+          <div className="col-span-12 md:col-span-6 lg:col-span-5">
+            <Reveal>
+              <div className="flex items-center gap-4">
+                <Glyph name={passions[0].glyph} className="shrink-0 text-accent" />
+                <h3 className="display text-[clamp(1.6rem,3.6vw,2.25rem)]">
+                  {passions[0].title}
+                </h3>
+              </div>
+              <ul className="mt-7 flex flex-wrap gap-x-3 gap-y-3">
+                {passions[0].certifications?.map((c) => (
+                  <li
+                    key={c}
+                    className="label flex items-center gap-2.5 border border-[var(--rule-strong)] px-3.5 py-2.5 text-ink"
+                  >
+                    <Diamond className="text-accent" size={5} />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+              <p className="serif-body mt-8 max-w-[42ch] text-[1.0625rem] text-ink-70">
+                {passions[0].paras[2]}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+                <ArrowLink href="/journey#passions">
+                  Read the whole thing
+                </ArrowLink>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="col-span-12 grid grid-cols-2 gap-6 self-start md:col-span-6 lg:col-span-6 lg:col-start-7">
+            <Reveal delay={0.06}>
+              <Plate
+                photo={photos.divingUnderwater}
+                fig="Pl.&thinsp;01"
+                sizes="(max-width: 768px) 46vw, 26vw"
+              />
+            </Reveal>
+            <Reveal delay={0.12} className="mt-10">
+              <Plate
+                photo={photos.divingDockside}
+                fig="Pl.&thinsp;02"
+                sizes="(max-width: 768px) 46vw, 26vw"
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ § 08 — JOURNEY ═════════════════════════════════════ */}
+      <section className="wrap pb-24 sm:pb-32">
+        <SectionHead
+          index="08"
           kicker="2026 → 2029"
           title="My journey"
           dek="Nothing here is pre-written. Future years describe intent, not achievement, and are updated only once something has actually happened."
@@ -447,10 +484,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 08 — THINGS I GOT WRONG ══════════════════════════ */}
+      {/* ══ § 09 — THINGS I GOT WRONG ══════════════════════════ */}
       <section className="wrap pb-24 sm:pb-32">
         <SectionHead
-          index="08"
+          index="09"
           kicker="Errata"
           title="Things I got wrong"
           dek={errataRule}
@@ -485,10 +522,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 09 — THE BIGGER QUESTION ═════════════════════════ */}
+      {/* ══ § 10 — THE BIGGER QUESTION ═════════════════════════ */}
       <section className="inverted graph-paper-inv bg-navy">
         <div className="wrap pt-24 pb-24 sm:pt-32 sm:pb-32">
-          <SectionHead index="09" kicker="Closing" title="The bigger question" />
+          <SectionHead index="10" kicker="Closing" title="The bigger question" />
           <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-10 sm:mt-20">
             <div className="col-span-12 lg:col-span-8 lg:col-start-3">
               <Reveal>
