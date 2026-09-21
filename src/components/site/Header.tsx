@@ -59,7 +59,8 @@ export function Header() {
             <span className="label text-ink">Darsh&nbsp;Shhaparia</span>
           </Link>
 
-          <nav className="hidden items-center gap-7 lg:flex">
+          {/* Ten entries: the row only clears the logo from xl up. */}
+          <nav className="hidden items-center gap-x-5 xl:flex">
             {nav.map((item) => {
               const active = isActive(item.href);
               return (
@@ -79,7 +80,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="group flex items-center gap-3 lg:hidden"
+            className="group flex items-center gap-3 xl:hidden"
             aria-label="Open menu"
             aria-expanded={open}
           >
@@ -99,7 +100,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: EASE }}
-            className="graph-paper fixed inset-0 z-[80] overflow-y-auto bg-paper lg:hidden"
+            className="graph-paper fixed inset-0 z-[80] overflow-y-auto bg-paper xl:hidden"
           >
             <div className="wrap flex h-[4.5rem] items-center justify-between">
               <span className="label flex items-baseline gap-2.5 text-ink">

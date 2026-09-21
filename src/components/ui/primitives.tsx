@@ -113,11 +113,14 @@ export function ArrowLink({
   children,
   className = "",
   tone = "ink",
+  external = false,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
   tone?: "ink" | "accent" | "paper";
+  /** Renders a plain anchor that opens in a new tab — for off-site links. */
+  external?: boolean;
 }) {
   const color =
     tone === "accent"
@@ -125,9 +128,14 @@ export function ArrowLink({
       : tone === "paper"
         ? "text-paper"
         : "text-ink";
+  const As = external ? "a" : Link;
+  const linkProps = external
+    ? { target: "_blank", rel: "noreferrer" as const }
+    : {};
   return (
-    <Link
+    <As
       href={href}
+      {...linkProps}
       className={`group/al label inline-flex items-center gap-2.5 ${color} ${className}`}
     >
       <span className="link-rule">{children}</span>
@@ -145,7 +153,7 @@ export function ArrowLink({
           strokeWidth="1.1"
         />
       </svg>
-    </Link>
+    </As>
   );
 }
 
@@ -156,10 +164,13 @@ export function Button({
   href,
   children,
   variant = "solid",
+  external = false,
 }: {
   href: string;
   children: ReactNode;
   variant?: "solid" | "outline" | "solid-invert";
+  /** Renders a plain anchor that opens in a new tab — for off-site links. */
+  external?: boolean;
 }) {
   const base =
     "label group/btn inline-flex items-center gap-3 px-6 py-4 transition-colors duration-300";
@@ -169,23 +180,39 @@ export function Button({
     outline:
       "border border-[var(--rule-strong)] text-ink hover:border-accent hover:text-accent",
   }[variant];
+  const arrow = (
+    <svg
+      width="13"
+      height="9"
+      viewBox="0 0 13 9"
+      fill="none"
+      aria-hidden
+      className="arrow-slide group-hover/btn:translate-x-1"
+    >
+      <path
+        d="M0 4.5h11M8 1l3.5 3.5L8 8"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+    </svg>
+  );
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className={`${base} ${styles}`}
+      >
+        {children}
+        {arrow}
+      </a>
+    );
+  }
   return (
     <Link href={href} className={`${base} ${styles}`}>
       {children}
-      <svg
-        width="13"
-        height="9"
-        viewBox="0 0 13 9"
-        fill="none"
-        aria-hidden
-        className="arrow-slide group-hover/btn:translate-x-1"
-      >
-        <path
-          d="M0 4.5h11M8 1l3.5 3.5L8 8"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-      </svg>
+      {arrow}
     </Link>
   );
 }

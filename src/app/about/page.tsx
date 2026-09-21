@@ -38,7 +38,6 @@ const chapters = [
       "My first book, The Millionaire Mindset, introduced young readers to ideas around money, saving, investing, entrepreneurship and financial habits.",
       "Today I continue writing because explaining an idea forces me to understand it better. It is very easy to believe you understand something until you have to write a clear paragraph about it.",
     ],
-    link: { href: "/writing", label: "Read my writing" },
   },
   {
     n: "04",
@@ -48,7 +47,7 @@ const chapters = [
       "As I develop my programming skills, I'm interested in creating tools and simulations that connect mathematics with real-world financial questions.",
       "The work may start simple. The goal is for it to become more sophisticated as my knowledge grows — and for the record of that progression to be visible rather than hidden.",
     ],
-    link: { href: "/achievements", label: "See the record so far" },
+    link: { href: "/hall-of-fame", label: "See the record so far" },
   },
   {
     n: "05",
@@ -58,7 +57,6 @@ const chapters = [
       "Instead of asking only “What is the answer?” I want to ask “How can I investigate this myself?”",
       "That means learning how to form hypotheses, collect data, analyse results, recognise limitations and communicate conclusions. The limitations section is the one I find hardest and the one I think matters most.",
     ],
-    link: { href: "/research", label: "Open the research notebook" },
   },
   {
     n: "06",
@@ -68,7 +66,7 @@ const chapters = [
       "Outside all of this I am a certified Scuba Diver and Junior Rescue Diver. I also swim, and I read a lot of geopolitics and history.",
       "The Rescue course is the one that changed how I think. It is almost entirely about noticing a small problem early, because underwater a small problem does not stay small. That is a better description of financial risk than most of the definitions I had read.",
     ],
-    link: { href: "/journey#passions", label: "More on the diving" },
+    link: { href: "/beyond-finance#passions", label: "More on the diving" },
   },
 ];
 
@@ -110,11 +108,12 @@ export default function AboutPage() {
               </ol>
 
               <Plate
-                photo={photos.portraitClose}
+                photo={photos.portraitAbout}
                 caption="Darsh Shhaparia, 2026."
                 fig="Pl.&thinsp;01"
-                sizes="22vw"
-                className="mt-12 hidden lg:block"
+                sizes="(max-width: 1024px) 80vw, 24vw"
+                className="mt-12"
+                maxH="max-h-[70svh] lg:max-h-none"
               />
             </div>
           </aside>

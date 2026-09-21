@@ -4,15 +4,10 @@ import { Ticker } from "@/components/site/Ticker";
 import { Reveal } from "@/components/ui/Reveal";
 import { Glyph } from "@/components/ui/Glyph";
 import { Plate, pl } from "@/components/ui/Plate";
-import { RandomWalk } from "@/components/data/RandomWalk";
-import {
-  ArrowLink,
-  Button,
-  Diamond,
-  SectionHead,
-} from "@/components/ui/primitives";
+import { Figure } from "@/components/ui/Figure";
+import { GrowthCurve } from "@/components/data/GrowthCurve";
+import { ArrowLink, Diamond, SectionHead } from "@/components/ui/primitives";
 import { openingQuestions, pillars } from "@/content/site";
-import { researchMethod, entries } from "@/content/research";
 import {
   achievements,
   journey,
@@ -32,27 +27,20 @@ const featured = [
     invert: true,
   },
   {
-    kind: "Podcast",
-    title: "Money Matters with Darsh",
-    body: "Conversations with entrepreneurs, investors, authors and business leaders about money, business and the decisions behind what they built.",
-    href: "/podcast",
-    cta: "Explore the podcast",
-  },
-  {
-    kind: "Essay",
-    title: "The Mathematics of Compound Interest",
-    body: "How exponential growth changes the way we think about money — and why our intuition about it is reliably wrong.",
-    href: "/writing/the-mathematics-of-compound-interest",
-    cta: "Read article",
-  },
-  {
-    kind: "Research",
-    title: "Can Mathematics Help Us Understand Financial Markets?",
-    body: "Probability, statistics, randomness — and the honest limits of modelling something that is made of people.",
-    href: "/writing/can-mathematics-help-us-understand-financial-markets",
-    cta: "Read research",
+    kind: "Upcoming",
+    title: "Millionaire Roadmap",
+    body: "The sequel, still being written — money mindsets, how wealth actually grows, and what money looks like in a digital world.",
+    href: "/upcoming-book",
+    cta: "See what's coming",
   },
 ];
+
+const journeyCurve = journey.map((y) => ({
+  label: y.year,
+  sub: y.age.replace("Age ", ""),
+  value: y.total,
+}));
+const journeyPlannedFrom = journey.findIndex((y) => y.state === "planned") - 1;
 
 export default function Home() {
   return (
@@ -213,14 +201,20 @@ export default function Home() {
           {hallOfFame.map((e, i) => (
             <Reveal key={e.n} delay={i * 0.06}>
               <Link href="/hall-of-fame" className="group block">
-                <Plate
-                  photo={e.photo}
-                  caption=""
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 23vw"
-                />
+                {e.photo ? (
+                  <Plate
+                    photo={e.photo}
+                    caption=""
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 23vw"
+                  />
+                ) : (
+                  <Figure ratio="3 / 4" caption="" />
+                )}
                 <div className="mt-4 flex items-baseline gap-3">
                   <span className="label-sm shrink-0 text-accent">{pl(i)}</span>
-                  <span className="label-sm text-ink-25">{e.kind}</span>
+                  <span className="label-sm text-ink-25">
+                    {e.role ?? e.kind}
+                  </span>
                 </div>
                 <h3 className="display mt-2.5 text-[1.25rem] transition-colors duration-300 group-hover:text-accent">
                   <span className="link-rule">{e.title}</span>
@@ -236,85 +230,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 05 — RESEARCH NOTEBOOK ═══════════════════════════ */}
-      <section className="inverted relative overflow-hidden bg-navy">
-        <RandomWalk className="fade-bottom pointer-events-none absolute inset-x-0 bottom-0 h-[32%] w-full" />
-        <div className="wrap relative pt-24 pb-24 sm:pt-32 sm:pb-32">
-          <SectionHead
-            index="05"
-            kicker="Notebook"
-            title={
-              <>
-                Questions I&rsquo;m{" "}
-                <span className="display-italic text-accent">
-                  investigating.
-                </span>
-              </>
-            }
-            dek="This is where I document my curiosity. Every entry begins with a question and ends with the next one."
-          />
-
-          <ol className="ledger mt-14 grid grid-cols-3 sm:mt-20 xl:grid-cols-9">
-            {researchMethod.map((s, i) => (
-              <Reveal key={s.step} delay={i * 0.04} className="h-full">
-                <li className="h-full p-4 sm:p-5">
-                  <span className="label-sm text-accent">{s.step}</span>
-                  <p className="mt-3.5 text-[0.9375rem] leading-tight text-paper">
-                    {s.label}
-                  </p>
-                  <p className="serif-body mt-2 text-[0.8125rem] leading-snug text-ink-45">
-                    {s.note}
-                  </p>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-
-          <div className="mt-16 grid grid-cols-12 gap-x-6 gap-y-12">
-            <div className="col-span-12 lg:col-span-5">
-              <Reveal>
-                <p className="display max-w-[20ch] text-[clamp(1.6rem,3.6vw,2.4rem)]">
-                  I&rsquo;m not trying to prove that I already know everything.{" "}
-                  <span className="display-italic text-accent">
-                    I&rsquo;m trying to show how I learn.
-                  </span>
-                </p>
-                <div className="mt-9">
-                  <Button href="/research" variant="solid-invert">
-                    Visit the research notebook
-                  </Button>
-                </div>
-              </Reveal>
-            </div>
-
-            <div className="col-span-12 border-t border-[var(--rule)] lg:col-span-6 lg:col-start-7">
-              {entries.slice(0, 3).map((e, i) => (
-                <Reveal key={e.slug} delay={i * 0.06}>
-                  <Link
-                    href={`/research/${e.slug}`}
-                    className="row-hover group flex items-start gap-5 border-b border-[var(--rule)] py-5"
-                  >
-                    <span className="label-sm mt-[0.5em] shrink-0 text-accent">
-                      {e.index}
-                    </span>
-                    <p className="serif-body flex-1 text-[1.0625rem] text-paper">
-                      <span className="link-rule">{e.question}</span>
-                    </p>
-                    <span className="label-sm hidden shrink-0 text-ink-45 sm:block">
-                      {e.status}
-                    </span>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ § 06 — ACHIEVEMENTS ════════════════════════════════ */}
+      {/* ══ § 05 — ACHIEVEMENTS ════════════════════════════════ */}
       <section className="wrap pt-24 pb-24 sm:pt-32 sm:pb-32">
         <SectionHead
-          index="06"
+          index="05"
           kicker="The record"
           title="Achievements, kept honest"
           dek="Quality over quantity. Empty categories stay empty until there is something real to put in them."
@@ -362,14 +281,14 @@ export default function Home() {
         </div>
 
         <div className="mt-10">
-          <ArrowLink href="/achievements">The full record</ArrowLink>
+          <ArrowLink href="/hall-of-fame">The full record</ArrowLink>
         </div>
       </section>
 
-      {/* ══ § 07 — DIVING ══════════════════════════════════════ */}
+      {/* ══ § 06 — DIVING ══════════════════════════════════════ */}
       <section className="wrap pb-24 sm:pb-32">
         <SectionHead
-          index="07"
+          index="06"
           kicker="Passions"
           title={
             <>
@@ -403,7 +322,7 @@ export default function Home() {
                 {passions[0].paras[2]}
               </p>
               <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
-                <ArrowLink href="/journey#passions">
+                <ArrowLink href="/beyond-finance#passions">
                   Read the whole thing
                 </ArrowLink>
               </div>
@@ -429,54 +348,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 08 — JOURNEY ═════════════════════════════════════ */}
+      {/* ══ § 07 — JOURNEY ═════════════════════════════════════ */}
       <section className="wrap pb-24 sm:pb-32">
         <SectionHead
-          index="08"
+          index="07"
           kicker="2026 → 2029"
           title="My journey"
-          dek="Nothing here is pre-written. Future years describe intent, not achievement, and are updated only once something has actually happened."
+          dek="Six years, counted as milestones finished rather than a score invented for the chart. The last point is intent, not achievement."
         />
 
-        <div className="ledger mt-14 grid grid-cols-1 sm:mt-20 sm:grid-cols-2 xl:grid-cols-4">
-          {journey.map((y, i) => (
-            <Reveal key={y.year} delay={i * 0.06} className="h-full">
-              <div
-                className={`flex h-full flex-col p-7 sm:p-8 ${
-                  y.state === "current"
-                    ? "border-t-2 border-t-accent bg-paper-2"
-                    : ""
-                }`}
+        <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-10 sm:mt-20">
+          <div className="col-span-12 lg:col-span-7">
+            <div className="border border-[var(--rule)] p-5 sm:p-7">
+              <GrowthCurve
+                points={journeyCurve}
+                plannedFrom={journeyPlannedFrom}
+              />
+            </div>
+            <p className="label-sm mt-3.5 flex items-baseline gap-3 text-ink-45">
+              <span className="shrink-0 text-accent">Fig.&thinsp;01</span>
+              <span className="leading-[1.7]">
+                Milestones completed, cumulative, by year.
+              </span>
+            </p>
+          </div>
+
+          <ol className="col-span-12 self-start border-t border-[var(--rule)] lg:col-span-4 lg:col-start-9">
+            {journey.map((y) => (
+              <li
+                key={y.year}
+                className="flex items-baseline gap-4 border-b border-[var(--rule)] py-3.5"
               >
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="num display text-[2.5rem] leading-none">
-                    {y.year}
-                  </span>
-                  <span
-                    className={`label-sm ${
-                      y.state === "current" ? "text-accent" : "text-ink-25"
-                    }`}
-                  >
-                    {y.state === "current" ? "Now" : "Ahead"}
-                  </span>
-                </div>
-                <p className="label mt-4 text-ink-45">{y.grade}</p>
-                <p className="serif-body mt-5 text-[1rem] text-ink-70">
-                  {y.headline}
-                </p>
-                <div className="mt-7 space-y-5 border-t border-[var(--rule)] pt-6">
-                  {y.blocks.map((b) => (
-                    <div key={b.label}>
-                      <p className="label-sm mb-2.5 text-ink-25">{b.label}</p>
-                      <p className="serif-body text-[0.9375rem] leading-relaxed text-ink-70">
-                        {b.items.join(" · ")}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          ))}
+                <span className="label-sm num shrink-0 text-ink-25">
+                  {y.year}
+                </span>
+                <span
+                  className={`serif-body flex-1 text-[1rem] ${
+                    y.state === "planned" ? "text-ink-45" : "text-ink-70"
+                  }`}
+                >
+                  {y.title}
+                </span>
+                {y.state === "current" && (
+                  <Diamond className="shrink-0 text-accent" size={5} />
+                )}
+                {y.state === "planned" && (
+                  <span className="label-sm shrink-0 text-ink-25">Planned</span>
+                )}
+              </li>
+            ))}
+          </ol>
         </div>
 
         <div className="mt-10">
@@ -484,10 +405,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 09 — THINGS I GOT WRONG ══════════════════════════ */}
+      {/* ══ § 08 — THINGS I GOT WRONG ══════════════════════════ */}
       <section className="wrap pb-24 sm:pb-32">
         <SectionHead
-          index="09"
+          index="08"
           kicker="Errata"
           title="Things I got wrong"
           dek={errataRule}
@@ -522,10 +443,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ § 10 — THE BIGGER QUESTION ═════════════════════════ */}
+      {/* ══ § 09 — THE BIGGER QUESTION ═════════════════════════ */}
       <section className="inverted graph-paper-inv bg-navy">
         <div className="wrap pt-24 pb-24 sm:pt-32 sm:pb-32">
-          <SectionHead index="10" kicker="Closing" title="The bigger question" />
+          <SectionHead index="09" kicker="Closing" title="The bigger question" />
           <div className="mt-14 grid grid-cols-12 gap-x-6 gap-y-10 sm:mt-20">
             <div className="col-span-12 lg:col-span-8 lg:col-start-3">
               <Reveal>

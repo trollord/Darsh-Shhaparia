@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/ui/Reveal";
-import { ArrowLink, PageHead } from "@/components/ui/primitives";
+import { PageHead } from "@/components/ui/primitives";
 import { errata, errataRule } from "@/content/misc";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default function ErrataPage() {
   return (
     <>
       <PageHead
-        index="11"
+        index="09"
         kicker="Errata"
         title={
           <>
@@ -83,11 +83,6 @@ export default function ErrataPage() {
                 Curiosity, humility and critical thinking are easier to claim
                 than to evidence. This page is the evidence.
               </p>
-              <div className="mt-8">
-                <ArrowLink href="/research">
-                  The experiments behind these
-                </ArrowLink>
-              </div>
             </div>
           </div>
         </div>

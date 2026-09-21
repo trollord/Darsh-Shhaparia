@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { LineReveal } from "@/components/ui/Reveal";
 import { Button, Diamond } from "@/components/ui/primitives";
-import { CompoundChart } from "@/components/data/CompoundChart";
+import { Plate } from "@/components/ui/Plate";
+import { photos } from "@/content/photos";
 import { site } from "@/content/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -59,33 +60,30 @@ export function Hero() {
               <p className="serif-body mt-4 max-w-[46ch] text-[1.125rem] text-ink-70 sm:text-[1.1875rem]">
                 I am also the author of{" "}
                 <em className="text-ink">The Millionaire Mindset</em> and host
-                of <em className="text-ink">Money Matters with Darsh</em>.
+                of <em className="text-ink">Money Matters with Young Darsh</em>.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Button href="/book">Explore my book</Button>
-                <Button href="/writing" variant="outline">
-                  Read my writing
-                </Button>
               </div>
             </motion.div>
           </div>
 
-          {/* ——— Instrument ——— */}
+          {/* ——— Portrait ——— */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.62, ease: EASE }}
             className="col-span-12 lg:col-span-5 lg:pl-6"
           >
-            <CompoundChart />
-            <p className="label-sm mt-4 flex items-start gap-2.5 leading-[1.85] text-ink-45">
-              <Diamond className="mt-[3px] text-accent" size={5} />
-              <span>
-                The first idea I wrote about. Move the sliders — the gap between
-                the two lines is the whole subject.
-              </span>
-            </p>
+            <Plate
+              photo={photos.portraitMaroonSuit}
+              fig="Pl.&thinsp;01"
+              caption={`${site.name} — ${site.grade}, ${site.year}.`}
+              sizes="(max-width: 1024px) 85vw, 42vw"
+              priority
+              maxH="max-h-[70svh] sm:max-h-[74svh] lg:max-h-[80vh]"
+            />
           </motion.div>
         </div>
       </div>

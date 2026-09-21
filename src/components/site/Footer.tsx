@@ -6,45 +6,8 @@ export function Footer() {
   return (
     <footer className="inverted graph-paper-inv">
       <div className="wrap">
-        {/* Closing statement — the last words of the brief, given room. */}
-        <div className="grid grid-cols-12 gap-x-6 border-b border-[var(--rule)] py-20 sm:py-28">
-          <div className="col-span-12 mb-8 md:col-span-3 md:mb-0 lg:col-span-2">
-            <span className="label text-accent-3">Contact</span>
-          </div>
-          <div className="col-span-12 md:col-span-9 lg:col-span-10">
-            <p className="display max-w-[18ch] text-[clamp(2rem,5.6vw,4rem)] text-paper">
-              I don&rsquo;t know exactly where this journey will lead.{" "}
-              <span className="display-italic text-accent-3">
-                I&rsquo;m interested in finding out.
-              </span>
-            </p>
-            <div className="mt-10">
-              <Link
-                href="/contact"
-                className="label group inline-flex items-center gap-3 bg-paper px-6 py-4 text-navy transition-colors duration-300 hover:bg-accent-3"
-              >
-                Get in touch
-                <svg
-                  width="13"
-                  height="9"
-                  viewBox="0 0 13 9"
-                  fill="none"
-                  aria-hidden
-                  className="arrow-slide"
-                >
-                  <path
-                    d="M0 4.5h11M8 1l3.5 3.5L8 8"
-                    stroke="currentColor"
-                    strokeWidth="1.1"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-
         {/* Directory */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-12 py-16 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-12 pt-20 pb-16 md:grid-cols-4">
           <FooterCol title="Sections" items={nav.slice(0, 5)} />
           <FooterCol title="More" items={[...nav.slice(5), ...secondaryNav]} />
           <div>

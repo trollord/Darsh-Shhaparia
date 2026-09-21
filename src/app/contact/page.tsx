@@ -14,7 +14,7 @@ const purposes = [
     n: "01",
     t: "Come on the podcast",
     d: "If you have built, invested, created or achieved something and would talk to a Grade 9 student about how you actually decided things.",
-    subject: "Money Matters with Darsh — guest enquiry",
+    subject: "Money Matters with Young Darsh — guest enquiry",
   },
   {
     n: "02",
@@ -46,7 +46,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHead
-        index="09"
+        index="07"
         kicker="Contact"
         title={
           <>

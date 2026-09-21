@@ -9,7 +9,7 @@ import {
 import { episodes, podcast } from "@/content/misc";
 
 export const metadata: Metadata = {
-  title: "Money Matters with Darsh",
+  title: "Money Matters with Young Darsh",
   description: podcast.blurb,
 };
 

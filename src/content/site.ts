@@ -8,33 +8,46 @@ export const site = {
   shortBio:
     "I'm a Grade 9 student exploring the intersection of mathematics, finance, technology, entrepreneurship and human behaviour. I write about ideas that interest me, build projects to understand them more deeply, and document what I learn along the way.",
   metaDescription:
-    "Darsh Shhaparia — Grade 9 student, author of The Millionaire Mindset and host of Money Matters with Darsh. Writing, research and a record of the work, at the intersection of mathematics, finance, technology and human behaviour.",
+    "Darsh Shhaparia — Grade 9 student, author of The Millionaire Mindset and host of Money Matters with Young Darsh. Writing, research and a record of the work, at the intersection of mathematics, finance, technology and human behaviour.",
   email: "hello@darshshhaparia.com",
   url: "https://darshshhaparia.com",
   socials: [
-    { label: "Instagram", href: "https://instagram.com", handle: "@darshshhaparia" },
-    { label: "YouTube", href: "https://youtube.com", handle: "Money Matters with Darsh" },
-    { label: "LinkedIn", href: "https://linkedin.com", handle: "Darsh Shhaparia" },
+    {
+      label: "Instagram",
+      // Canonical profile URL. The share link this came from carried a
+      // personal share token and a QR utm tag; neither belongs on a public page.
+      href: "https://www.instagram.com/darshshaparia",
+      handle: "@darshshaparia",
+    },
+    {
+      label: "Spotify",
+      // Public listener URL for the show. The creators.spotify.com address is
+      // the dashboard and would send visitors to a login screen.
+      href: "https://open.spotify.com/show/7I7wJGdOaGzMRwZ8QAyV8j",
+      handle: "Money Matters with Young Darsh",
+    },
   ],
 } as const;
 
 export type NavItem = { label: string; href: string; index: string };
 
+/* Writing, Podcast and Research are hidden for now: their routes still
+   exist and still build, but nothing links to them, they are kept out of
+   the sitemap and each one sets `robots: { index: false }`. To bring one
+   back, restore its entry here and undo those three things. */
 export const nav: NavItem[] = [
   { label: "About", href: "/about", index: "01" },
   { label: "My Journey", href: "/journey", index: "02" },
   { label: "My Books", href: "/book", index: "03" },
-  { label: "Writing", href: "/writing", index: "04" },
-  { label: "Podcast", href: "/podcast", index: "05" },
-  { label: "Achievements", href: "/achievements", index: "06" },
-  { label: "Hall of Fame", href: "/hall-of-fame", index: "07" },
-  { label: "Research", href: "/research", index: "08" },
-  { label: "Contact", href: "/contact", index: "09" },
+  { label: "Upcoming Book", href: "/upcoming-book", index: "04" },
+  { label: "Hall of Fame", href: "/hall-of-fame", index: "05" },
+  { label: "Beyond Finance", href: "/beyond-finance", index: "06" },
+  { label: "Contact", href: "/contact", index: "07" },
 ];
 
 export const secondaryNav: NavItem[] = [
-  { label: "Gallery", href: "/hall-of-fame#gallery", index: "10" },
-  { label: "Things I Got Wrong", href: "/things-i-got-wrong", index: "11" },
+  { label: "Gallery", href: "/hall-of-fame#gallery", index: "08" },
+  { label: "Things I Got Wrong", href: "/things-i-got-wrong", index: "09" },
 ];
 
 /** Slow ticker rail under the hero. */

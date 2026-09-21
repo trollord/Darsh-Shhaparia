@@ -10,6 +10,8 @@ export const book = {
   isbn: "978-93-49186-85-9",
   price: "₹250",
   readership: "Young readers, 11+",
+  /** Where to buy it. */
+  amazonUrl: "https://amzn.in/d/0iPZBn1h",
   blurb:
     "My first book, introducing young readers to money habits, saving, investing, entrepreneurship and the way financial decisions compound over a lifetime.",
   why: [
@@ -59,7 +61,7 @@ export type Episode = {
 };
 
 export const podcast = {
-  title: "Money Matters with Darsh",
+  title: "Money Matters with Young Darsh",
   blurb:
     "A podcast where I speak with entrepreneurs, investors, authors, business leaders and inspiring young people about money, business and the decisions behind what they built.",
   why: [
@@ -189,59 +191,97 @@ export const passionsRule =
 
 export type JourneyYear = {
   year: string;
-  grade: string;
-  state: "current" | "future";
+  age: string;
+  state: "past" | "current" | "planned";
+  /** Two or three words for the spine of the timeline. */
+  title: string;
   headline: string;
-  blocks: { label: string; items: string[] }[];
+  detail: string;
+  marks: string[];
+  /**
+   * Milestones completed by the end of this year, counted cumulatively.
+   * This is the y-value of the growth curve — a real count of the entries
+   * in `marks` above, not an invented score.
+   */
+  total: number;
 };
 
 export const journey: JourneyYear[] = [
   {
+    year: "2022",
+    age: "Age 10",
+    state: "past",
+    title: "Learning",
+    headline: "The year the questions started.",
+    detail:
+      "It began as curiosity rather than a plan: reading about where money comes from, what it is for, and why two families with the same income end up in completely different places. Nothing was published this year. All of it was input.",
+    marks: ["Started learning about finance"],
+    total: 1,
+  },
+  {
+    year: "2023",
+    age: "Age 11",
+    state: "past",
+    title: "First book",
+    headline: "Reading turned into writing.",
+    detail:
+      "The first book came out of a gap: nothing on money spoke to people my age without either talking down to them or turning into a get-rich pitch. Explaining an idea to someone your own age turned out to be a far harder test than understanding it yourself.",
+    marks: ["The Millionaire Mindset — first book"],
+    total: 2,
+  },
+  {
+    year: "2024",
+    age: "Age 12",
+    state: "past",
+    title: "Ideation",
+    headline: "Working out what the second book had to be.",
+    detail:
+      "The first book answered what money is for. The obvious next question — how it actually grows — is a much larger subject, and most of this year went on deciding what the book was for before writing a word of it.",
+    marks: ["Ideation for the second book"],
+    total: 3,
+  },
+  {
+    year: "2025",
+    age: "Age 13",
+    state: "past",
+    title: "Writing",
+    headline: "Drafting Millionaire Roadmap.",
+    detail:
+      "Writing, restructuring and cutting. The chapters that survived are the ones built around a situation a reader could actually be in, rather than a definition they would simply have to trust.",
+    marks: ["Writing the second book"],
+    total: 4,
+  },
+  {
     year: "2026",
-    grade: "Grade 9",
+    age: "Age 14",
     state: "current",
-    headline: "Beginning: exploring finance, mathematics and technology.",
-    blocks: [
-      { label: "Exploring", items: ["Finance", "Mathematics", "Programming", "Writing", "Research"] },
-      { label: "Publishing", items: ["Articles and educational content"] },
-      { label: "Diving", items: ["Scuba Diver", "Junior Rescue Diver"] },
-      { label: "Learning", items: ["Python and quantitative concepts"] },
+    title: "Publishing & teaching",
+    headline: "The year the work stopped being only writing.",
+    detail:
+      "The busiest year so far. Alongside publishing the second book, this is the year of standing in front of a class: teaching finance to Grade 5 and Grade 6 students at my own school, and at an NGO. Teaching is the most exposing test of whether you understand something — a ten-year-old asks the question the adults were too polite to. It is also the year the connections started, which came from finishing things rather than planning them.",
+    marks: [
+      "Publishing the second book",
+      "Teaching finance at an NGO",
+      "Teaching Grades 5 & 6 at my own school",
+      "Building connections and networking",
     ],
+    total: 8,
   },
   {
     year: "2027",
-    grade: "Grade 10",
-    state: "future",
-    headline: "Stronger foundations in statistics, probability and economics.",
-    blocks: [
-      { label: "Intended", items: ["More advanced mathematics", "More sophisticated projects", "Statistics and programming"] },
-      { label: "Possible", items: ["Competitions or research, if genuinely completed"] },
-    ],
-  },
-  {
-    year: "2028",
-    grade: "Grade 11",
-    state: "future",
-    headline: "Toward independent research and deeper quantitative work.",
-    blocks: [
-      { label: "Intended", items: ["Independent research", "Advanced quantitative projects"] },
-      { label: "Possible", items: ["Mentorships", "Research competitions"] },
-    ],
-  },
-  {
-    year: "2029",
-    grade: "Grade 12",
-    state: "future",
-    headline: "Building on four years of learning, experimentation and research.",
-    blocks: [
-      { label: "Intended", items: ["Major independent work", "Research portfolio"] },
-      { label: "Possible", items: ["Reflection on four years of learning"] },
-    ],
+    age: "Age 15",
+    state: "planned",
+    title: "Podcast",
+    headline: "Planning to start the podcast.",
+    detail:
+      "Intent, not achievement. The idea behind it is the same one behind the books: the fastest way to learn something is to ask someone who has actually done it. Nothing has been recorded yet, and this entry stays in the future tense until something has.",
+    marks: ["Planning to start the podcast"],
+    total: 9,
   },
 ];
 
 export const journeyRule =
-  "Nothing on this timeline is pre-written. Future years describe intent, not achievement, and are updated only once something has actually happened.";
+  "Six years, counted honestly. Every point on the curve is a milestone that actually happened — 2027 is the one exception, and it describes intent rather than achievement until it does.";
 
 /* ---------------------------------------------------------------- */
 
@@ -256,7 +296,7 @@ export const achievements = [
   {
     category: "Media",
     items: [
-      { t: "Money Matters with Darsh", d: "Creator and host. Conversations with founders, investors and authors.", year: "2026" },
+      { t: "Money Matters with Young Darsh", d: "Creator and host. Conversations with founders, investors and authors.", year: "2026" },
     ],
   },
   {
@@ -274,7 +314,22 @@ export const achievements = [
     items: [
       {
         t: "Motilal Oswal",
-        d: "Award received at the Motilal Oswal offices.",
+        d: "Presented a copy of The Millionaire Mindset in person, at the Motilal Oswal offices.",
+        year: "2025",
+      },
+      {
+        t: "Ridham Desai",
+        d: "Met the Managing Director of Morgan Stanley at the Morgan Stanley offices.",
+        year: "2026",
+      },
+      {
+        t: "Ritu Tawde",
+        d: "Met the Mayor of Mumbai, and presented a copy of The Millionaire Mindset.",
+        year: "2026",
+      },
+      {
+        t: "Chetan Bhagat",
+        d: "Met the author whose books had been an influence for years.",
         year: "2025",
       },
     ],

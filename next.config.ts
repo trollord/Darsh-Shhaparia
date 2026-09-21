@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // /achievements was folded into the Hall of Fame; keep old links alive.
+      { source: "/achievements", destination: "/hall-of-fame", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

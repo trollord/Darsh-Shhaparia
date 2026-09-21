@@ -3,6 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Plate } from "@/components/ui/Plate";
 import {
   ArrowLink,
+  Button,
   Diamond,
   PageHead,
   SectionHead,
@@ -73,9 +74,19 @@ export default function BookPage() {
               ))}
             </div>
 
-            <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-[var(--rule)] pt-8">
-              <ArrowLink href="/contact">Where to find the book</ArrowLink>
-              <ArrowLink href="/writing">Read the writing that followed</ArrowLink>
+            <div className="mt-9 border-t border-[var(--rule)] pt-8">
+              <Button href={book.amazonUrl} external>
+                Buy on Amazon
+              </Button>
+              <p className="label-sm mt-4 flex items-start gap-2.5 leading-[1.7] text-ink-45">
+                <Diamond className="mt-[3px] text-accent" size={5} />
+                <span>
+                  {book.title}: {book.subtitle} &mdash; {book.price}, paperback.
+                </span>
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+                <ArrowLink href="/contact">Where to find the book</ArrowLink>
+              </div>
             </div>
           </div>
         </div>
