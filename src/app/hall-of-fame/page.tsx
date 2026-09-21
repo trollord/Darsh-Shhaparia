@@ -198,54 +198,6 @@ export default function HallOfFamePage() {
           </div>
         </div>
       </section>
-
-      {/* ══ § 03 — Gallery ═══════════════════════════════════════ */}
-      <section id="gallery" className="inverted graph-paper-inv bg-navy">
-        <div className="wrap pt-24 pb-24 sm:pt-32 sm:pb-32">
-          <SectionHead
-            index="03"
-            kicker="Gallery"
-            title={
-              <>
-                Everything{" "}
-                <span className="display-italic text-accent">else.</span>
-              </>
-            }
-            dek="The photographs that did not need an entry of their own — ceremonies, offices and the ordinary evenings in between."
-          />
-
-          <div className="mt-14 gap-6 sm:mt-20 sm:columns-2 lg:columns-3">
-            {gallery.map((p, i) => (
-              <Reveal
-                key={p.src}
-                delay={(i % 3) * 0.06}
-                className="mb-10 block break-inside-avoid"
-              >
-                <Plate
-                  photo={p}
-                  fig={pl(i)}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 30vw"
-                />
-              </Reveal>
-            ))}
-          </div>
-
-          <div className="mt-8 border-t border-[var(--rule)] pt-10">
-            <p className="serif-body display-italic max-w-[34ch] text-[clamp(1.35rem,3.4vw,1.9rem)]">
-              More will be added as they happen. Nothing here is staged for the
-              site.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
-              <ArrowLink href="/beyond-finance" tone="paper">
-                Where the diving fits in
-              </ArrowLink>
-              <ArrowLink href="/book" tone="paper">
-                The book in most of these photographs
-              </ArrowLink>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
