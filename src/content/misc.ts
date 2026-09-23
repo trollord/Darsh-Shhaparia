@@ -297,6 +297,7 @@ export const achievements = [
     category: "Media",
     items: [
       { t: "Money Matters with Young Darsh", d: "Creator and host. Conversations with founders, investors and authors.", year: "2026" },
+      { t: "Hindustan Times feature", d: "The book, and the aim of it reaching readers everywhere.", year: "2025" },
     ],
   },
   {
@@ -305,6 +306,16 @@ export const achievements = [
       {
         t: "Matterly Foundation & PETA India",
         d: "Spoke at an event held with the Matterly Foundation, PETA India and SAIRIK.",
+        year: "2025",
+      },
+      {
+        t: "CSV MPET, Dharavi",
+        d: "Youngest speaker, author and chief guest at the school.",
+        year: "2025",
+      },
+      {
+        t: "Children's Day, old age home",
+        d: "An afternoon of food and company, with the Matterly Foundation.",
         year: "2025",
       },
     ],
@@ -337,17 +348,19 @@ export const achievements = [
   {
     category: "Certifications",
     items: [
-      { t: "Scuba Diver", d: "Open-water certification.", year: "2025" },
-      { t: "Junior Rescue Diver", d: "Rescue-level certification.", year: "2025" },
+      { t: "Open Water Diver", d: "SSI, certified in Koh Samui, Thailand.", year: "2025" },
+      { t: "Junior Rescue Diver", d: "SSI, rescue-level certification.", year: "2025" },
+      { t: "Behavioural Finance", d: "Duke University.", year: "2026" },
+      { t: "Financial Markets", d: "Yale University, via Coursera.", year: "2026" },
     ],
   },
   {
-    category: "Academic",
-    items: [],
-  },
-  {
     category: "Competitions",
-    items: [],
+    items: [
+      { t: "IIMUN 2025, Edubridge International School", d: "High Commendation, G20 Committee.", year: "2025" },
+      { t: "IIMUN Geneva", d: "Canada delegation, in committee at the WHO.", year: "2025" },
+      { t: "Model United Nations 2025", d: "Won the conference.", year: "2025" },
+    ],
   },
 ];
 

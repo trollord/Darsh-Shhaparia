@@ -13,7 +13,7 @@ export default function WritingPage() {
   return (
     <>
       <PageHead
-        index="04"
+        index="05"
         kicker="Writing"
         title={
           <>

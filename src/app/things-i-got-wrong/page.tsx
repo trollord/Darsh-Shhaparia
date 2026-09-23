@@ -13,7 +13,7 @@ export default function ErrataPage() {
   return (
     <>
       <PageHead
-        index="09"
+        index="11"
         kicker="Errata"
         title={
           <>

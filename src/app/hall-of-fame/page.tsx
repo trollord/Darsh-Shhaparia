@@ -9,19 +9,19 @@ import {
   SectionHead,
 } from "@/components/ui/primitives";
 import { achievements, achievementsRule } from "@/content/misc";
-import { gallery, hallOfFame } from "@/content/photos";
+import { hallOfFame } from "@/content/photos";
 
 export const metadata: Metadata = {
   title: "Hall of Fame",
   description:
-    "The written record and the photographs in one place — what has actually been finished, the people behind it, and a gallery of the rooms it happened in.",
+    "The written record and the photographs in one place — what has actually been finished, and the people behind it.",
 };
 
 export default function HallOfFamePage() {
   return (
     <>
       <PageHead
-        index="05"
+        index="06"
         kicker="The record"
         title={
           <>
@@ -33,71 +33,14 @@ export default function HallOfFamePage() {
         aside={
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
             <ArrowLink href="#hall">Skip to the people</ArrowLink>
-            <ArrowLink href="#gallery">Skip to the gallery</ArrowLink>
           </div>
         }
       />
 
-      {/* ══ § 01 — The written record ════════════════════════════ */}
-      <section className="wrap pt-20 pb-24 sm:pt-24 sm:pb-32">
-        <SectionHead
-          index="01"
-          kicker="Record"
-          title="A short list, kept honest"
-          dek={achievementsRule}
-        />
-
-        <div className="mt-14 border-t border-[var(--rule)] sm:mt-20">
-          {achievements.map((cat, i) => (
-            <Reveal key={cat.category} delay={i * 0.04}>
-              <section className="grid grid-cols-12 gap-x-6 gap-y-6 border-b border-[var(--rule)] py-10">
-                <header className="col-span-12 md:col-span-3">
-                  <h3 className="display text-[1.5rem]">{cat.category}</h3>
-                  <p className="label-sm mt-3 text-ink-25">
-                    {cat.items.length
-                      ? `${cat.items.length} entr${cat.items.length === 1 ? "y" : "ies"}`
-                      : "None yet"}
-                  </p>
-                </header>
-
-                <div className="col-span-12 md:col-span-9 lg:col-span-8 lg:col-start-5">
-                  {cat.items.length ? (
-                    <ul className="border-t border-[var(--rule)]">
-                      {cat.items.map((it) => (
-                        <li
-                          key={it.t}
-                          className="flex flex-col gap-2 border-b border-[var(--rule)] py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
-                        >
-                          <div>
-                            <p className="serif-body text-[1.125rem]">{it.t}</p>
-                            <p className="serif-body mt-1.5 text-[0.9375rem] text-ink-45">
-                              {it.d}
-                            </p>
-                          </div>
-                          <span className="label-sm num shrink-0 text-ink-25">
-                            {it.year}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="serif-body display-italic max-w-[40ch] border-t border-dashed border-[var(--rule-strong)] pt-5 text-[1rem] text-ink-45">
-                      Nothing here yet. This category stays empty rather than
-                      being padded — it will be filled in when there is
-                      something real to put in it.
-                    </p>
-                  )}
-                </div>
-              </section>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ══ § 02 — Hall of fame ══════════════════════════════════ */}
+      {/* ══ § 01 — Hall of fame ══════════════════════════════════ */}
       <section id="hall" className="wrap pb-24 sm:pb-32">
         <SectionHead
-          index="02"
+          index="01"
           kicker="Hall of fame"
           title="The people behind it"
           dek="Meetings that came out of something finished rather than something planned. Each one is here because of the conversation, not the photograph."
@@ -184,13 +127,70 @@ export default function HallOfFamePage() {
             </Reveal>
           ))}
         </div>
+      </section>
 
-        <div className="mt-14 grid grid-cols-12 gap-x-6">
+      {/* ══ § 02 — The written record ════════════════════════════ */}
+      <section className="wrap pt-20 pb-24 sm:pt-24 sm:pb-32">
+        <SectionHead
+          index="02"
+          kicker="Record"
+          title="A short list, kept honest"
+          dek={achievementsRule}
+        />
+
+        <div className="mt-14 border-t border-[var(--rule)] sm:mt-20">
+          {achievements.map((cat, i) => (
+            <Reveal key={cat.category} delay={i * 0.04}>
+              <section className="grid grid-cols-12 gap-x-6 gap-y-6 border-b border-[var(--rule)] py-10">
+                <header className="col-span-12 md:col-span-3">
+                  <h3 className="display text-[1.5rem]">{cat.category}</h3>
+                  <p className="label-sm mt-3 text-ink-25">
+                    {cat.items.length
+                      ? `${cat.items.length} entr${cat.items.length === 1 ? "y" : "ies"}`
+                      : "None yet"}
+                  </p>
+                </header>
+
+                <div className="col-span-12 md:col-span-9 lg:col-span-8 lg:col-start-5">
+                  {cat.items.length ? (
+                    <ul className="border-t border-[var(--rule)]">
+                      {cat.items.map((it) => (
+                        <li
+                          key={it.t}
+                          className="flex flex-col gap-2 border-b border-[var(--rule)] py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+                        >
+                          <div>
+                            <p className="serif-body text-[1.125rem]">{it.t}</p>
+                            <p className="serif-body mt-1.5 text-[0.9375rem] text-ink-45">
+                              {it.d}
+                            </p>
+                          </div>
+                          <span className="label-sm num shrink-0 text-ink-25">
+                            {it.year}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="serif-body display-italic max-w-[40ch] border-t border-dashed border-[var(--rule-strong)] pt-5 text-[1rem] text-ink-45">
+                      Nothing here yet. This category stays empty rather than
+                      being padded — it will be filled in when there is
+                      something real to put in it.
+                    </p>
+                  )}
+                </div>
+              </section>
+            </Reveal>
+          ))}
+        </div>
+
+                <div className="mt-14 grid grid-cols-12 gap-x-6">
           <div className="col-span-12 lg:col-span-8 lg:col-start-5">
             <p className="serif-body display-italic max-w-[34ch] text-[clamp(1.35rem,3.4vw,1.9rem)]">
               The work is the point; the list is only the receipt.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+              <ArrowLink href="/certificates">The certificates</ArrowLink>
               <ArrowLink href="/beyond-finance">
                 The part that isn&rsquo;t finance
               </ArrowLink>
@@ -198,6 +198,8 @@ export default function HallOfFamePage() {
           </div>
         </div>
       </section>
+
+     
     </>
   );
 }

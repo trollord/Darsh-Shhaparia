@@ -86,6 +86,9 @@ export default function BookPage() {
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ArrowLink href="/contact">Where to find the book</ArrowLink>
+                <ArrowLink href="/writing">
+                  Read the writing that followed
+                </ArrowLink>
               </div>
             </div>
           </div>
@@ -193,22 +196,23 @@ export default function BookPage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 32vw"
             />
           </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-5">
+          {/* <div className="col-span-12 sm:col-span-6 lg:col-span-5">
             <Plate
               photo={photos.bookPresentation1}
               fig="Pl.&thinsp;04"
               caption="Handing a copy over in person."
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 40vw"
             />
-          </div>
-          <div className="col-span-12 sm:col-span-6 lg:col-span-5 lg:col-start-7">
+          </div> */}
+          {/* <div className="col-span-12 sm:col-span-6 lg:col-span-5 lg:col-start-7">
             <Plate
               photo={photos.speakingPeta}
               fig="Pl.&thinsp;05"
               caption="Talking about the ideas in it, on stage."
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 46vw, 40vw"
             />
-          </div>
+          </div> */}
+     
         </div>
 
         <div className="mt-16 border-t border-[var(--rule)] pt-10">
@@ -217,11 +221,6 @@ export default function BookPage() {
               See the rest of the photographs
             </ArrowLink>
           </div>
-          <p className="label mt-12 mb-5 text-ink-25">Reader feedback</p>
-          <p className="serif-body max-w-[46ch] text-[1.0625rem] text-ink-70">
-            Quotes from readers will be added here as they come in — real ones
-            only, attributed. Nothing invented to fill the space.
-          </p>
         </div>
       </section>
     </>

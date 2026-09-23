@@ -65,6 +65,9 @@ export function Hero() {
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Button href="/book">Explore my book</Button>
+                <Button href="/writing" variant="outline">
+                  Read my writing
+                </Button>
               </div>
             </motion.div>
           </div>

@@ -23,7 +23,7 @@ export default function BeyondFinancePage() {
   return (
     <>
       <PageHead
-        index="06"
+        index="08"
         kicker="Beyond finance"
         title={
           <>

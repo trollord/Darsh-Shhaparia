@@ -38,6 +38,7 @@ const chapters = [
       "My first book, The Millionaire Mindset, introduced young readers to ideas around money, saving, investing, entrepreneurship and financial habits.",
       "Today I continue writing because explaining an idea forces me to understand it better. It is very easy to believe you understand something until you have to write a clear paragraph about it.",
     ],
+    link: { href: "/writing", label: "Read my writing" },
   },
   {
     n: "04",

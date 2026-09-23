@@ -31,23 +31,25 @@ export const site = {
 
 export type NavItem = { label: string; href: string; index: string };
 
-/* Writing, Podcast and Research are hidden for now: their routes still
-   exist and still build, but nothing links to them, they are kept out of
-   the sitemap and each one sets `robots: { index: false }`. To bring one
-   back, restore its entry here and undo those three things. */
+/* Podcast and Research are hidden for now: their routes still exist and
+   still build, but nothing links to them, they are kept out of the sitemap
+   and they are disallowed in robots.txt. To bring one back, restore its
+   entry here and undo those three things. */
 export const nav: NavItem[] = [
   { label: "About", href: "/about", index: "01" },
   { label: "My Journey", href: "/journey", index: "02" },
   { label: "My Books", href: "/book", index: "03" },
   { label: "Upcoming Book", href: "/upcoming-book", index: "04" },
-  { label: "Hall of Fame", href: "/hall-of-fame", index: "05" },
-  { label: "Beyond Finance", href: "/beyond-finance", index: "06" },
-  { label: "Contact", href: "/contact", index: "07" },
+  { label: "Writing", href: "/writing", index: "05" },
+  { label: "Hall of Fame", href: "/hall-of-fame", index: "06" },
+  { label: "Certificates", href: "/certificates", index: "07" },
+  { label: "Beyond Finance", href: "/beyond-finance", index: "08" },
+  { label: "Contact", href: "/contact", index: "09" },
 ];
 
 export const secondaryNav: NavItem[] = [
-  { label: "Gallery", href: "/hall-of-fame#gallery", index: "08" },
-  { label: "Things I Got Wrong", href: "/things-i-got-wrong", index: "09" },
+  { label: "Gallery", href: "/hall-of-fame#gallery", index: "10" },
+  { label: "Things I Got Wrong", href: "/things-i-got-wrong", index: "11" },
 ];
 
 /** Slow ticker rail under the hero. */
@@ -57,7 +59,7 @@ export const ticker: string[] = [
   "Portfolio theory",
   "Microeconomics",
   "Reading — Thinking, Fast and Slow",
-  "Diving — PADI Junior Rescue Diver",
+  "Diving — SSI Junior Rescue Diver",
   "Writing — The mathematics of compound interest",
 ];
 

@@ -8,13 +8,7 @@ import { Figure } from "@/components/ui/Figure";
 import { GrowthCurve } from "@/components/data/GrowthCurve";
 import { ArrowLink, Diamond, SectionHead } from "@/components/ui/primitives";
 import { openingQuestions, pillars } from "@/content/site";
-import {
-  achievements,
-  journey,
-  errata,
-  errataRule,
-  passions,
-} from "@/content/misc";
+import { achievements, journey, passions } from "@/content/misc";
 import { hallOfFame, photos } from "@/content/photos";
 
 const featured = [
@@ -32,6 +26,20 @@ const featured = [
     body: "The sequel, still being written — money mindsets, how wealth actually grows, and what money looks like in a digital world.",
     href: "/upcoming-book",
     cta: "See what's coming",
+  },
+  {
+    kind: "Essay",
+    title: "The Mathematics of Compound Interest",
+    body: "How exponential growth changes the way we think about money — and why our intuition about it is reliably wrong.",
+    href: "/writing/the-mathematics-of-compound-interest",
+    cta: "Read article",
+  },
+  {
+    kind: "Essay",
+    title: "Can Mathematics Help Us Understand Financial Markets?",
+    body: "Probability, statistics, randomness — and the honest limits of modelling something that is made of people.",
+    href: "/writing/can-mathematics-help-us-understand-financial-markets",
+    cta: "Read article",
   },
 ];
 
@@ -406,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* ══ § 08 — THINGS I GOT WRONG ══════════════════════════ */}
-      <section className="wrap pb-24 sm:pb-32">
+      {/* <section className="wrap pb-24 sm:pb-32">
         <SectionHead
           index="08"
           kicker="Errata"
@@ -441,7 +449,7 @@ export default function Home() {
             Everything I&rsquo;ve changed my mind about
           </ArrowLink>
         </div>
-      </section>
+      </section> */}
 
       {/* ══ § 09 — THE BIGGER QUESTION ═════════════════════════ */}
       <section className="inverted graph-paper-inv bg-navy">

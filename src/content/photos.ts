@@ -128,9 +128,16 @@ export const photos = {
   hofRituTawde: {
     src: "/images/hof-ritu-tawde.webp",
     w: 1200,
-    h: 1600,
-    alt: "Darsh Shhaparia presenting The Millionaire Mindset to Ritu Tawde",
-    caption: "With Ritu Tawde.",
+    h: 2118,
+    alt: "Darsh Shhaparia, wearing a ceremonial shawl, with Ritu Tawde, Mayor of Mumbai",
+    caption: "With Ritu Tawde, Mayor of Mumbai.",
+  },
+  certIimun2025: {
+    src: "/images/cert-iimun-2025.webp",
+    w: 1200,
+    h: 1217,
+    alt: "IIMUN 2025 at Edubridge International School — Darsh Shhaparia, G20, High Commendation",
+    caption: "IIMUN 2025 — High Commendation, G20 Committee.",
   },
   hofChetanBhagat: {
     src: "/images/hof-chetan-bhagat.webp",

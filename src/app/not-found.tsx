@@ -15,7 +15,7 @@ export default function NotFound() {
         </p>
         <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
           <ArrowLink href="/">Back to the homepage</ArrowLink>
-          <ArrowLink href="/book">Read something instead</ArrowLink>
+          <ArrowLink href="/writing">Read something instead</ArrowLink>
         </div>
       </div>
     </section>

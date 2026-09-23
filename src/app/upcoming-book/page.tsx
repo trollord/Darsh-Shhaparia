@@ -224,6 +224,7 @@ export default function UpcomingBookPage() {
             website. This page will keep changing.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <ArrowLink href="/writing">Read the writing in between</ArrowLink>
             <ArrowLink href="/book">The first book</ArrowLink>
           </div>
         </div>
