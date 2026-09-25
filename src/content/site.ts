@@ -40,7 +40,7 @@ export const nav: NavItem[] = [
   { label: "My Journey", href: "/journey", index: "02" },
   { label: "My Books", href: "/book", index: "03" },
   { label: "Upcoming Book", href: "/upcoming-book", index: "04" },
-  { label: "Writing", href: "/writing", index: "05" },
+  { label: "Blogs", href: "/writing", index: "05" },
   { label: "Hall of Fame", href: "/hall-of-fame", index: "06" },
   { label: "Certificates", href: "/certificates", index: "07" },
   { label: "Beyond Finance", href: "/beyond-finance", index: "08" },
