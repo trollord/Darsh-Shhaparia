@@ -132,6 +132,13 @@ export const photos = {
     alt: "Darsh Shhaparia, wearing a ceremonial shawl, with Ritu Tawde, Mayor of Mumbai",
     caption: "With Ritu Tawde, Mayor of Mumbai.",
   },
+  hofRadhikaGupta: {
+    src: "/images/hof-radhika-gupta.webp",
+    w: 1200,
+    h: 1600,
+    alt: "Radhika Gupta holding a copy of The Millionaire Mindset, beside Darsh Shhaparia",
+    caption: "With Radhika Gupta, Edelweiss Asset Management.",
+  },
   certIimun2025: {
     src: "/images/cert-iimun-2025.webp",
     w: 1200,
@@ -235,6 +242,15 @@ export const hallOfFame: HallEntry[] = [
     role: "Author",
     note: "His books had inspired me for years, but meeting him in person showed me something I could not learn from the pages alone. He showed me that young Indian voices can reach millions and create real movement — that an author can get an entire generation to think differently about life, money and dreams. His belief in my work as a thirteen-year-old author proved that age is not a barrier to meaningful contribution. He taught me that being an author is not only about writing; it is about connecting with people and changing how they think. His success became my blueprint for what is possible.",
     pull: "When a bestselling author believes in your voice, you realise your story can change India.",
+  },
+  {
+    n: "05",
+    photo: photos.hofRadhikaGupta,
+    title: "Radhika Gupta",
+    kind: "Meeting",
+    person: "Radhika Gupta",
+    role: "MD & CEO, Edelweiss Asset Management",
+    note: "I had the opportunity to meet one of India's leading voices in finance and investing. She became CEO of Edelweiss Mutual Fund in 2017 and was subsequently appointed MD & CEO, with a background spanning finance, technology and economics, including studies at the University of Pennsylvania and Wharton — the same three subjects this whole site is built around, in someone who has actually run money with them.",
   },
 ];
 

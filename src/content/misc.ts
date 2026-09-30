@@ -343,6 +343,11 @@ export const achievements = [
         d: "Met the author whose books had been an influence for years.",
         year: "2025",
       },
+      {
+        t: "Radhika Gupta",
+        d: "Met the MD & CEO of Edelweiss Asset Management.",
+        year: "2026",
+      },
     ],
   },
   {
