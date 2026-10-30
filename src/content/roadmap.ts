@@ -1,22 +1,38 @@
 /* ------------------------------------------------------------------
-   UPCOMING BOOK — Millionaire Roadmap
+   MILLIONAIRE ROADMAP — the second book.
 
-   Drawn from the working manuscript. Everything here comes out of the
-   draft itself: the preface, the table of contents and the structure
-   of the sample chapters. Nothing about publication is stated as
-   settled until it actually is — `status` and `expected` are the only
-   fields that make a forward-looking claim, and both say so plainly.
+   Written while the book was still a manuscript, so the premise, the
+   table of contents and the method below all come out of the draft
+   itself. The book was launched on 14 October 2026, so the forward-
+   looking framing has gone; what is here now describes a printed book.
+
+   Still missing, and deliberately absent rather than guessed:
+   publisher, ISBN, price and a retail link. Add them to `edition`
+   below once they are known and the facts ledger picks them up.
    ------------------------------------------------------------------ */
 
-export const upcoming = {
+export const roadmap = {
   title: "Millionaire Roadmap",
   sequelTo: "The Millionaire Mindset",
-  status: "In progress" as const,
-  // The journey timeline dates publication to 2026; kept in step with it.
-  expected: "2026",
+  published: "2026",
+  launch: {
+    date: "14 October 2026",
+    venue: "Taj Santacruz, Mumbai",
+    by: "Esha Deol",
+    host: "Team Applaud",
+    award: "Young Author Award, presented by Chetan Bhagat",
+  },
   readership: "Young readers, 11+",
   blurb:
     "The sequel to The Millionaire Mindset — a practical method for dealing with money, from the mindsets we inherit to how wealth actually grows, and what money looks like in a digital world.",
+
+  /** Fill these in as they are confirmed; blanks are skipped in the ledger. */
+  edition: {
+    publisher: "",
+    isbn: "",
+    price: "",
+    buyUrl: "",
+  },
 
   /* From the preface, in the author's framing. */
   premise: [
@@ -29,7 +45,7 @@ export const upcoming = {
   thesis:
     "This book is not about becoming rich overnight. It is about learning how to make smart decisions, develop valuable skills, and think ahead.",
 
-  /* How each chapter is built — the pattern the draft repeats. */
+  /* How each chapter is built — the pattern the book repeats. */
   method: [
     {
       n: "01",
@@ -53,7 +69,7 @@ export const upcoming = {
     },
   ],
 
-  /* Table of contents, as it currently stands in the draft. */
+  /* Table of contents, as printed. */
   parts: [
     {
       n: "01",
@@ -98,8 +114,7 @@ export const upcoming = {
 
   bonus: ["Money Smart Quiz Corner", "Impact & Recognition Gallery"],
 
-  /* Sample ideas the draft already commits to, quoted from its own
-     “big lesson” lines. */
+  /* Ideas the book commits to, quoted from its own “big lesson” lines. */
   lessons: [
     {
       t: "Walls and ladders",

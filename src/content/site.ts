@@ -31,16 +31,20 @@ export const site = {
 
 export type NavItem = { label: string; href: string; index: string };
 
-/* Podcast and Research are hidden for now: their routes still exist and
-   still build, but nothing links to them, they are kept out of the sitemap
-   and they are disallowed in robots.txt. To bring one back, restore its
-   entry here and undo those three things. */
+/* Research is hidden for now: the route still exists and still builds, but
+   nothing links to it, it is kept out of the sitemap and it is disallowed in
+   robots.txt. To bring it back, restore its entry here and undo those three
+   things. Podcast was hidden on the same terms until it had real episodes.
+
+   `index` is the section number printed on each page's masthead, so it has to
+   stay in step with the order below — inserting an entry renumbers the ones
+   after it, and the matching PageHead index on those pages moves with it. */
 export const nav: NavItem[] = [
   { label: "About", href: "/about", index: "01" },
   { label: "My Journey", href: "/journey", index: "02" },
   { label: "My Books", href: "/book", index: "03" },
-  { label: "Upcoming Book", href: "/upcoming-book", index: "04" },
-  { label: "Blogs", href: "/writing", index: "05" },
+  { label: "Blogs", href: "/writing", index: "04" },
+  { label: "Podcast", href: "/podcast", index: "05" },
   { label: "Hall of Fame", href: "/hall-of-fame", index: "06" },
   { label: "Certificates", href: "/certificates", index: "07" },
   { label: "Beyond Finance", href: "/beyond-finance", index: "08" },

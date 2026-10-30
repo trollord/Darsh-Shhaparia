@@ -14,18 +14,18 @@ import { hallOfFame, photos } from "@/content/photos";
 const featured = [
   {
     kind: "Book",
-    title: "The Millionaire Mindset",
-    body: "My book introducing young readers to financial thinking, money habits, saving, investing and entrepreneurship.",
-    href: "/book",
+    title: "Millionaire Roadmap",
+    body: "The second book, launched in October 2026 — money mindsets, how wealth actually grows, and what money looks like in a digital world.",
+    href: "/book#roadmap",
     cta: "Explore the book",
     invert: true,
   },
   {
-    kind: "Upcoming",
-    title: "Millionaire Roadmap",
-    body: "The sequel, still being written — money mindsets, how wealth actually grows, and what money looks like in a digital world.",
-    href: "/upcoming-book",
-    cta: "See what's coming",
+    kind: "Book",
+    title: "The Millionaire Mindset",
+    body: "The first book, introducing young readers to financial thinking, money habits, saving, investing and entrepreneurship.",
+    href: "/book#mindset",
+    cta: "Explore the book",
   },
   {
     kind: "Essay",

@@ -153,12 +153,45 @@ export const photos = {
     alt: "Darsh Shhaparia with the author Chetan Bhagat",
     caption: "With Chetan Bhagat.",
   },
+  hofYoungAuthorAward: {
+    src: "/images/hof-young-author-award.webp",
+    w: 1600,
+    h: 1067,
+    alt: "Chetan Bhagat presenting the Young Author Award to Darsh Shhaparia on stage at the Book Awards Gala Event, fifth edition",
+    caption: "Receiving the Young Author Award from Chetan Bhagat.",
+  },
+  hofEshaDeol: {
+    src: "/images/hof-esha-deol.webp",
+    w: 436,
+    h: 326,
+    alt: "Esha Deol in conversation with Darsh Shhaparia at the launch of Millionaire Roadmap",
+    caption: "With Esha Deol, at the launch of Millionaire Roadmap.",
+  },
+  hofDadajiBhuse: {
+    src: "/images/hof-dadaji-bhuse.webp",
+    w: 1200,
+    h: 1600,
+    alt: "Darsh Shhaparia holding the Excellence in Finance Writing award and a copy of The Millionaire Mindset, beside Shri Dadaji Bhuse",
+    caption:
+      "With Shri Dadaji Bhuse, and the Excellence in Finance Writing award.",
+  },
   hofRidhamDesai: {
     src: "/images/hof-ridham-desai.webp",
     w: 1200,
     h: 1600,
     alt: "Darsh Shhaparia with Ridham Desai at the Morgan Stanley offices",
     caption: "With Ridham Desai, Morgan Stanley.",
+  },
+  roadmapPromoCover: {
+    src: "/images/roadmap-promo-cover.webp",
+    w: 941,
+    h: 1672,
+    // Promotional artwork made for the launch, styled as a magazine cover.
+    // It is not a published issue, and the caption says so wherever it is
+    // used — the masthead, volume and date on it are part of the design.
+    alt: "Promotional cover artwork, styled as a magazine front page, showing Darsh Shhaparia seated with a copy of Millionaire Roadmap",
+    caption:
+      "Promotional cover artwork for Millionaire Roadmap — designed for the launch, not a published magazine issue.",
   },
   bookCover: {
     src: "/images/book-cover.jpg",
@@ -189,7 +222,7 @@ export type HallEntry = {
   /** Omit until the photograph exists — the plate renders as a ruled slot. */
   photo?: Photo;
   title: string;
-  kind: "Award" | "Meeting" | "Speaking";
+  kind: "Award" | "Meeting" | "Speaking" | "Launch";
   person?: string;
   /** Rendered beside the person — their role, not a description of them. */
   role?: string;
@@ -251,6 +284,39 @@ export const hallOfFame: HallEntry[] = [
     person: "Radhika Gupta",
     role: "MD & CEO, Edelweiss Asset Management",
     note: "I had the opportunity to meet one of India's leading voices in finance and investing. She became CEO of Edelweiss Mutual Fund in 2017 and was subsequently appointed MD & CEO, with a background spanning finance, technology and economics, including studies at the University of Pennsylvania and Wharton — the same three subjects this whole site is built around, in someone who has actually run money with them.",
+  },
+  {
+    n: "06",
+    photo: photos.hofYoungAuthorAward,
+    title: "The Young Author Award",
+    kind: "Award",
+    person: "Chetan Bhagat",
+    role: "Author",
+    award: "Young Author Award · Team Applaud · 2026",
+    note: "On 14 October 2026, at Taj Santacruz, Team Applaud gave me the Young Author Award for my second book, Millionaire Roadmap — and it was Chetan Bhagat who handed it over. I had already met him once; this time the thing passing between us was a trophy for a book I had actually finished. An award is not proof that the writing is good, only that it reached people, which is the part a writer cannot do alone. Standing on that stage, the second book stopped being a private project and became something with readers attached to it.",
+    pull: "The first book proved I could finish one. The second proved somebody was reading.",
+  },
+  {
+    n: "07",
+    photo: photos.hofEshaDeol,
+    title: "Millionaire Roadmap, launched",
+    kind: "Launch",
+    person: "Esha Deol",
+    role: "Actor",
+    award: "Book launch · Taj Santacruz · 14 October 2026",
+    note: "The same evening, at the same hotel, Esha Deol launched Millionaire Roadmap at the event presented by Team Applaud. There is a strange moment when a book you wrote alone, over two years, is held up by someone else in front of a room — it stops being yours in the way a manuscript is yours, and becomes something people can pick up and argue with. That is the whole point of publishing, and it is also the part nobody warns you is quietly terrifying.",
+    pull: "A book is finished the day it stops being yours.",
+  },
+  {
+    n: "08",
+    photo: photos.hofDadajiBhuse,
+    title: "Excellence in Finance Writing",
+    kind: "Award",
+    person: "Shri Dadaji Bhuse",
+    role: "Education Minister of Maharashtra",
+    award: "Excellence in Finance Writing (Young Author)",
+    note: "The award was for The Millionaire Mindset, and it came from the office that decides what gets taught in Maharashtra's classrooms. That is what made it land. I wrote the book because school had not taught me any of it and I did not want to wait; being recognised for it by the state's Education Minister suggested the gap I had written into is one the system can see too. Recognition from a reader is encouraging. Recognition from education itself is an argument that the subject belongs in a syllabus.",
+    pull: "I wrote the book because school did not teach it. The recognition came from education itself.",
   },
 ];
 

@@ -49,6 +49,26 @@ export const book = {
 
 /* ---------------------------------------------------------------- */
 
+/**
+ * A vertical clip, shot in the 9:16 format the phone and the feed both use.
+ *
+ * `poster` is the episode card, and it is the only thing that loads with the
+ * page — the MP4 is fetched on the click that plays it. Keep the files in
+ * /public/video, re-encoded to 720×1280 so the average bitrate stays under
+ * ~800 kbps and playback starts before the download finishes.
+ */
+export type Reel = {
+  src: string;
+  poster: string;
+  /** Intrinsic pixels, so the frame is reserved and nothing shifts. */
+  w: number;
+  h: number;
+  title: string;
+  alt: string;
+  caption: string;
+  duration: string;
+};
+
 export type Episode = {
   n: string;
   guest: string;
@@ -58,6 +78,8 @@ export type Episode = {
   date: string;
   duration: string;
   status: "published" | "recording";
+  /** The clip, where one exists. Omit and the episode renders as text. */
+  reel?: Reel;
 };
 
 export const podcast = {
@@ -73,58 +95,45 @@ export const podcast = {
 
 export const episodes: Episode[] = [
   {
-    n: "05",
-    guest: "To be announced",
-    role: "Founder",
-    topic: "Building a company before you have any money",
-    takeaway: "—",
-    date: "2026-09",
-    duration: "—",
-    status: "recording",
-  },
-  {
-    n: "04",
-    guest: "Guest name",
-    role: "Author",
-    topic: "Writing about money without selling anything",
-    takeaway:
-      "Credibility comes from what you are willing to say that is against your own interest.",
-    date: "2026-07",
-    duration: "42 min",
-    status: "published",
-  },
-  {
-    n: "03",
-    guest: "Guest name",
-    role: "Investor",
-    topic: "How a professional actually decides what to buy",
-    takeaway:
-      "Most of the work is deciding what to ignore, not deciding what to buy.",
-    date: "2026-06",
-    duration: "51 min",
-    status: "published",
-  },
-  {
     n: "02",
-    guest: "Guest name",
-    role: "Entrepreneur",
-    topic: "The first year, and what it really costs",
+    guest: "Dhanpal Jhaveri",
+    role: "Vice Chairman, Everstone Group · CEO, EverSource Capital",
+    topic: "Patience, conviction and agility",
     takeaway:
-      "Cash flow kills more businesses than bad ideas do.",
-    date: "2026-05",
-    duration: "38 min",
+      "Patience, conviction, agility — in that order, and the first one is the hardest.",
+    date: "2026-10",
+    duration: "1:43",
     status: "published",
+    reel: {
+      src: "/video/reel-jhaveri-02.mp4",
+      poster: "/images/reel-jhaveri-02-poster.webp",
+      w: 1080,
+      h: 1920,
+      title: "Smart Finance, episode 02 of 05",
+      alt: "Smart Finance, episode 02 of 05 — Darsh Shhaparia in conversation with Dhanpal Jhaveri",
+      caption: "Smart Finance — episode 02 of 05. The conversation continues.",
+      duration: "1:43",
+    },
   },
   {
     n: "01",
-    guest: "Guest name",
-    role: "Young achiever",
-    topic: "Starting something at fifteen",
-    takeaway:
-      "Being underestimated is an advantage if you use it to ask better questions.",
-    date: "2026-04",
-    duration: "34 min",
+    guest: "Dhanpal Jhaveri",
+    role: "Vice Chairman, Everstone Group · CEO, EverSource Capital",
+    topic: "The two rules of money",
+    takeaway: "Save. Compound. Repeat. There is no third rule worth the time.",
+    date: "2026-10",
+    duration: "1:05",
     status: "published",
+    reel: {
+      src: "/video/reel-jhaveri-01.mp4",
+      poster: "/images/reel-jhaveri-01-poster.webp",
+      w: 1080,
+      h: 1920,
+      title: "The 2 rules of money",
+      alt: "The 2 Rules of Money — Darsh Shhaparia with Dhanpal Jhaveri of Everstone Group",
+      caption: "The 2 Rules of Money — save, compound, repeat.",
+      duration: "1:05",
+    },
   },
 ];
 
@@ -258,25 +267,29 @@ export const journey: JourneyYear[] = [
     title: "Publishing & teaching",
     headline: "The year the work stopped being only writing.",
     detail:
-      "The busiest year so far. Alongside publishing the second book, this is the year of standing in front of a class: teaching finance to Grade 5 and Grade 6 students at my own school, and at an NGO. Teaching is the most exposing test of whether you understand something — a ten-year-old asks the question the adults were too polite to. It is also the year the connections started, which came from finishing things rather than planning them.",
+      "The busiest year so far. The second book stopped being a manuscript on 14 October, when Esha Deol launched Millionaire Roadmap at Taj Santacruz; the same evening, Chetan Bhagat handed me the Young Author Award for it, and earlier in the year the Education Minister of Maharashtra recognised The Millionaire Mindset for Excellence in Finance Writing. It is also the year of standing in front of a class: teaching finance to Grade 5 and Grade 6 students at my own school, and at an NGO. Teaching is the most exposing test of whether you understand something — a ten-year-old asks the question the adults were too polite to. And it is the year the podcast stopped being a plan and became two recorded conversations.",
     marks: [
-      "Publishing the second book",
+      "Millionaire Roadmap published",
+      "Launched by Esha Deol at Taj Santacruz",
+      "Young Author Award, presented by Chetan Bhagat",
+      "Excellence in Finance Writing, from the Education Minister",
       "Teaching finance at an NGO",
       "Teaching Grades 5 & 6 at my own school",
       "Building connections and networking",
+      "First podcast episodes recorded",
     ],
-    total: 8,
+    total: 12,
   },
   {
     year: "2027",
     age: "Age 15",
     state: "planned",
     title: "Podcast",
-    headline: "Planning to start the podcast.",
+    headline: "Carrying the podcast past the first guest.",
     detail:
-      "Intent, not achievement. The idea behind it is the same one behind the books: the fastest way to learn something is to ask someone who has actually done it. Nothing has been recorded yet, and this entry stays in the future tense until something has.",
-    marks: ["Planning to start the podcast"],
-    total: 9,
+      "Intent, not achievement. Two conversations with one guest are a start, not a show — the real test is whether it keeps going once the novelty of a first recording has worn off. The idea behind it is the same one behind the books: the fastest way to learn something is to ask someone who has actually done it. This entry stays in the future tense until there is a run of episodes rather than an opening pair.",
+    marks: ["Carrying the podcast beyond the first guest"],
+    total: 13,
   },
 ];
 
@@ -290,6 +303,11 @@ export const achievements = [
     category: "Writing",
     items: [
       { t: "The Millionaire Mindset", d: "Author. Published 2025.", year: "2025" },
+      {
+        t: "Millionaire Roadmap",
+        d: "Second book. Launched by Esha Deol at Taj Santacruz, 14 October 2026.",
+        year: "2026",
+      },
       { t: "Published articles", d: "Long-form writing on finance, mathematics and behaviour.", year: "2026" },
     ],
   },
@@ -342,6 +360,16 @@ export const achievements = [
         t: "Chetan Bhagat",
         d: "Met the author whose books had been an influence for years.",
         year: "2025",
+      },
+      {
+        t: "Young Author Award",
+        d: "Presented by Chetan Bhagat, from Team Applaud, for Millionaire Roadmap. Taj Santacruz, 14 October 2026.",
+        year: "2026",
+      },
+      {
+        t: "Excellence in Finance Writing (Young Author)",
+        d: "Presented by Shri Dadaji Bhuse, Education Minister of Maharashtra, for The Millionaire Mindset.",
+        year: "2026",
       },
       {
         t: "Radhika Gupta",
